@@ -1,0 +1,30 @@
+#!/bin/bash
+find . -type f -name "*-Neigh.data" -exec cat {} > runlist \;
+cat runlist | sort -r | uniq > /tmp/worklist
+cat /tmp/worklist
+
+rm -f todo
+touch todo
+chmod 755 todo
+
+while read WORK; do
+    echo $WORK
+    freq=`echo $WORK | cut -d" " -f1`
+    cell=`echo $WORK | cut -d" " -f2`
+
+#    if [ -f "stats/${freq}_*cell*" ]; then
+#        GREEN "cell $cell $freq done\n"
+#    else
+        RED "cell $cell $freq not done\n"
+        echo "$PWD/mtrunk -f $freq -t 15 2> $PWD/$freq.stderr" >> todo
+        echo "reset;echo 'sleeping for 10 seconds, ctl-c now to exit" >> todo
+        echo "sleep 10" >> todo
+#    fi
+done < /tmp/worklist
+sleep 3
+echo "============= starting bulk run============"
+./todo
+
+./learn
+
+ 

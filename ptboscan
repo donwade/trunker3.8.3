@@ -1,0 +1,13 @@
+#!/bin/bash
+rm *.txt
+rm *.bak
+rm *.csv
+
+#look at 142.245, 142.095, its weird
+#for freq in  142.62 142.800 143.100 143.145 142.950 142.90 142.605 142.590 142.665 142.350 142.530 142.440 142.500 142.440 142.320 142.260 142.245  ; do
+for freq in  142.62 ; do
+    ./wtrunk $freq 10
+    reset
+    ls *.txt
+done
+

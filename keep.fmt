@@ -1,0 +1,318 @@
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+8000    1f4     D   2PCENF  Enforcement Common      Interop 
+32768   800     A   2PCSAF  Southeast Zone Public Safety Common     Interop 
+32800   802     A   2PCAMB  Southeast Zone Ambulance Common     Interop 
+32816   803     A   2PCPOL  Southeast Zone Police Common    Interop 
+
+OPP Combined (Regular Operations) Talkgroups
+
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+8704    220     D   2OPS31  Stormont, Dundas, Glengary 3I - 2OPS31      Law Dispatch 
+8720    221     D   2OPS32  Frontenac 3R/Napanee 3J - 2OPS32 / Prince Edward 3O     Law Dispatch 
+8752    223     D   2OPS34  Russell County 3E/Hawkesbury 3H - 2OP34     Law Dispatch 
+8768    224     D   2OPS35  Bancroft 3C/Centre Hastings 3Q/Quinte West 3U - 2OPS35      Law Dispatch 
+8784    225     D   2OPS36  Kawartha Lakes 1J/Haliburton 1E - 2OPS36    Law Dispatch 
+8800    226     D   2OPS37  Ottawa 3K/Lanark 3N - 2OPS37    Law Dispatch 
+8816    227     D   2OPS38  Grenville 3P/Leeds 3D - 2OPS38      Law Dispatch 
+8832    228     D   2OPS39  Northumberland 1F/Peterborough 1I - 2OPS39      Law Dispatch 
+8928    22e     D   2OPS40  Unknown 2OPS40      Law Dispatch 
+8944    22f     D   2OPS41  Bracebridge/Huntsville 1C - 2OPS41      Law Dispatch 
+8960    230     D   2OPS42  Renfrew County 3T - 2OPS42      Law Dispatch 
+9056    236     D   2OPS48  West Parry Sound 4J/Almaguin Highlands 4C - 2OPS48      Law Dispatch 
+
+OPP Detachment (Detachment Special Events) Talkgroups
+
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+8224    202     D   2OPS01  Arnprior 3T - 2OPS01    Law Dispatch 
+8240    203     D   2OPS02  Bancroft 3C - 2OPS02    Law Dispatch 
+8256    204     D   2OPS03  Central Hastings County 3Q - 2OPS03     Law Dispatch 
+8272    205     D   2OPS04  Frontenac 3R - 2OPS04   Law Dispatch 
+8288    206     D   2OPS05  Grenville County 3P - 2OPS05    Law Dispatch 
+8304    207     D   2OPS06  Haliburton Highlands 1E - 2OPS06    Law Dispatch 
+8320    208     D   2OPS07  Hawkesbury 3H - 2OPS07      Law Dispatch 
+8336    209     D   2OPS08  Kawartha Lakes 1J - 2OPS08      Law Dispatch 
+8352    20a     D   2OPS09  Killaloe 3F - 2OPS09    Law Dispatch 
+8368    20b     D   2OPS10  Lanark County 3N - 2OPS10   Law Dispatch 
+8384    20c     D   2OPS11  Leeds County 3D - 2OPS11    Law Dispatch 
+8400    20d     D   2OPS12  Napanee 3J - 2OPS12     Law Dispatch 
+8416    20e     D   2OPS13  Northumberland 1F - 2OPS13      Law Dispatch 
+8432    20f     D   2OPS14  Ottawa 3K - 2OPS14      Law Dispatch 
+8448    210     D   2OPS15  Peterborough 1I - 2OPS15    Law Dispatch 
+8464    211     D   2OPS16  Prince Edward County 3O - 2OPS16    Law Dispatch 
+8480    212     D   2OPS17  Quinte West 3U - 2OPS17     Law Dispatch 
+8496    213     D   2OPS18  Renfrew 3T - 2OPS18     Law Dispatch 
+8512    214     D   2OPS19  Russell 3E - 2OPS19     Law Dispatch 
+8528    215     D   2OPS20  Stormont, Dundas, Glengary 3I - 2OPS20      Law Dispatch 
+8544    216     D   2OPS21  Upper Ottawa Valley 3M - 2OPS21     Law Dispatch 
+8576    218     D   2OPS23  Spare (Muskoka) 2OPS23      Law Dispatch 
+8640    21c     D   2OPS27  Muskoka 1C - 2OPS27     Law Dispatch 
+8656    21d     D   2OPS28  Almaguin Highlands 4C - 2OPS28      Law Dispatch 
+8672    21e     D   2OPS29  Spare (Muskoka) 2OPS29      Law Dispatch 
+8688    21f     D   2OPS30  West Parry Sound 4J - 2OPS30    Law Dispatch 
+
+OPP Intelligence Talkgroups
+
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+9088    238     D   2INV1   Investigative Services      Law Talk 
+9104    239     D   2INV 2  Investigative Services      Law Talk 
+9120    23a     D   2INV 3  Investigative Services      Law Talk 
+9136    23b     D   2CRIME  Crime Unit Common   Law Talk 
+9152    23c     D   2INTE1  Intelligence Services   Law Talk 
+9168    23d     D   2INTE2  Intelligence Services   Law Talk 
+9184    23e     D   2VIP1   VIP Services    Law Talk 
+9200    23f     D   2VIP2   VIP Services    Law Talk 
+9216    240     D   2VIP3   VIP Services    Law Talk 
+9232    241     D   2TSB1   Technical Service Bureau    Law Talk 
+9248    242     D   2TSB2   Technical Service Bureau    Law Talk 
+9264    243     E   2TSB03  Technical Service Bureau    Law Talk 
+9280    244     D   2DRUG1  Drug Enforcement Bureau     Law Talk 
+9296    245     D   2DRUG2  Drug Enforcement Bureau     Law Talk 
+9312    246     D   2ORGC1  Organized Crime Bureau      Law Talk 
+9328    247     D   2ORGC2  Organized Crime Bureau      Law Talk 
+9344    248     D   2SPCL1  Special Services    Law Talk 
+9360    249     D   2SPCL2  Special Services    Law Talk 
+
+OPP Tactical Talkgroups
+
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+9376    24a     D   2TAC01  Tactical Operations 1 - 2TAC01      Law Tac 
+9392    24b     D   2TAC02  Tactical Operations 2 - 2TAC02      Law Tac 
+9408    24c     D   2TAC03  Tactical Operations 3 - 2TAC03      Law Tac 
+9424    24d     D   2TAC04  Tactical Operations 4 - 2TAC04      Law Tac 
+9440    24e     D   2TAC05  Tactical Operations 5 - 2TAC05      Law Tac 
+9456    24f     D   2TAC06  Tactical Operations 6 - 2TAC06      Law Tac 
+9472    250     D   2TAC07  Tactical Operations 7 - 2TAC07      Law Tac 
+
+OPP Wide Area Talkgroups
+
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+8192    200     D   2HWY01  East Zone Traffic Units - 2HWY01    Law Talk 
+8208    201     D   2HWY02  West Zone Traffic Units - 2HWY02    Law Talk 
+8848    229     D   2PETE   Peterborough - 2PETE    Law Talk 
+8864    22a     D   2BELLV  Belleville - 2BELLV     Law Talk 
+8880    22b     D   2PERTH  Perth - 2PERTH      Law Talk 
+8896    22c     D   2OTTWA  Ottawa - 2OTTAWA    Law Talk 
+8912    22d     D   2MUSKO  Muskoka - 2MUSKOKA      Law Talk 
+9536    254     A   2RED SE     Remote Emergency Dispatch 2RED SE   Law Talk 
+
+Criminal Intelligence Services of Ontario Talkgroups
+
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+1712    06b     E   2SURV1  Surveillance Common     Law Talk 
+1728    06c     E   2SURV2  Surveillance Common     Law Talk 
+1744    06d     E   2SURV3  Surveillance Common     Law Talk 
+1760    06e     E   2SURV4  Surveillance Common     Law Talk 
+1792    070     E   PETERB  Peterborough    Law Talk 
+1808    071     E   COBURG  Cobourg     Law Talk 
+1824    072     E   QUINTE  Quinte      Law Talk 
+1840    073     E   BELLEV  Belleville      Law Talk 
+1856    074     E   KINGST  Kingston    Law Talk 
+1872    075     E   BROCKV  Brockville      Law Talk 
+1888    076     E   CORNWA  Cornwall    Law Talk 
+1904    077     E   OTTAWA  Ottawa      Law Talk 
+1920    078     E   2SPR1   Surveillance Spare      Law Talk 
+1936    079     E   2SPR2   Surveillance Spare      Law Talk 
+
+MTO Enforcement Talkgroups
+
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+3760    0eb     D   2MTO ADM    Enforcement Administration Southeast    Law Dispatch 
+3776    0ec     D   2MTO OTT OP     Ottawa Operations   Law Dispatch 
+3792    0ed     D   2MTO OTT TC     Ottawa Tactical     Law Dispatch 
+3808    0ee     D   2MTO KGN OP     Kingston Operations     Law Dispatch 
+3824    0ef     D   2MTO KGN TC     Kingston Tactical   Law Dispatch 
+3840    0f0     D   2MTO SPARE  Spare   Law Dispatch 
+3888    0f3     D   2MTO PSND OP    Parry Sound Operations      Law Dispatch 
+3904    0f4     D   2MTO PSND TC    Parry Sound Tactical    Law Dispatch 
+3920    0f5     D   2MTO HTVL OP    Huntsville Operations   Law Dispatch 
+3936    0f6     D   2MTO HTVL TC    Huntsville Tactical     Law Dispatch 
+
+MNR Talkgroups
+
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+2736    0ab     E   2MNR ESSU   Evaluation and Special Services Unit    Law Talk 
+2752    0ac     D   MNRConOff   Conservation Officers   Law Talk 
+2768    0ad     D   2NR001  Operations 1    Law Dispatch 
+2784    0ae     D   2NR002  Operations 2    Law Dispatch 
+2800    0af     D   2NR003  Operations 3 (Muskoka)      Law Dispatch 
+2816    0b0     D   2NRT01  Conservation Officers Tactical      Law Tac 
+2832    0b1     D   2NRT02  Conservation Officers Tactical      Law Tac 
+2848    0b2     D   2NRT03  Conservation Officers Tactical      Law Tac 
+2864    0b3     D   2NRT04  Conservation Officers Tactical      Law Tac 
+2944    0b8     D   MNRConOff   Conservation Officers   Law Talk 
+2960    0b9     D   2Peterboro  Peterborough Wide Area Channel      Law Talk 
+2976    0ba     D   2Bancroft   Bancroft Enforcement    Law Talk 
+2992    0bb     D   2Pembroke   Pembroke Enforcement    Law Talk 
+3008    0bc     D   2Kemptville     Kemptville Wide Area Channel    Law Talk 
+3024    0bd     D   2Algonquin  Algonquin Park Wide Area Channel    Law Talk 
+3056    0bf     D   2ParrySound     Parry Sound Wide Area Channel   Law Talk 
+3072    0c0     D   MNRConOff   Conservation Officers   Law Tac 
+
+MOH Common Talkgroups
+
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+34976   88a     A   MOH ZN2     Southeast Zone Ambulance Common     Interop 
+34992   88b     A   MOH REG4 COM    Region 4 Common     Interop 
+35008   88c     A   MOH REG5 COM    Region 5 Common     Interop 
+37776   939     A   MOH RED     Remote Emergency Dispatch   EMS Dispatch 
+
+MOH Kingston CACC Talkgroups
+
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+35184   897     A   Kingstn CACC    CACC    EMS Dispatch 
+35200   898     A   Kingstn West    West    EMS Dispatch 
+35216   899     A   Kngst Centre    Centre      EMS Dispatch 
+35232   89a     A   Kingstn EAST    East    EMS Dispatch 
+35248   89b     A   KingstnTAC1     Tactical 1      EMS-Tac 
+35264   89c     A   KingstnTAC2     Tactical 2      EMS-Tac 
+35344   8a1     A   KingstnTAC3     Tactical 3      EMS-Tac 
+35296   89e     A   KingstnTAC4     Tactical 4      EMS-Tac 
+35312   89f     A   KingstnTAC5     Tactical 5      EMS-Tac 
+35280   89d     A   RG4 COM Link    Tactical Link to Region 4 Common    EMS-Tac 
+35328   8a0     A   Kngstn Spare    Spare   EMS Dispatch 
+
+MOH Lindsay CACC Talkgroups
+
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+35040   88e     A   Lindsay CACC    CACC    EMS Dispatch 
+35056   88f     A   LindsayNorth    North   EMS Dispatch 
+35072   890     A   LindsaySouth    South   EMS Dispatch 
+35088   891     A   LindsayTAC 1    Tactical 1      EMS-Tac 
+35104   892     A   LindsayTAC 2    Tactical 2      EMS-Tac 
+35120   893     A   LindsayTAC 3    Tactical 3      EMS-Tac 
+35136   894     A   Lndsay SPARE    Spare   EMS Dispatch 
+
+MOH Muskoka CACC Talkgroups
+
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+35792   8bd     A   Muskoka ACS     CACC    EMS Dispatch 
+35808   8be     A   Muskoka D 1     District Channel 1      EMS Dispatch 
+35824   8bf     A   Muskoka D 2     District Channel 2      EMS Dispatch 
+35840   8c0     A   Muskoka TAC1    Tactical 1      EMS-Tac 
+35856   8c1     A   Muskoka TAC2    Tactical 2      EMS-Tac 
+
+MOH Ottawa CACC Talkgroups
+
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+35616   8b2     A   Ottawa CACC     CACC    EMS Dispatch 
+35456   8a8     A   Ottawa ALPHA    Alpha       EMS Dispatch 
+35472   8a9     A   Ottawa BRAVO    Bravo       EMS Dispatch 
+35648   8b4     A   Ott CHARLIE     Charlie     EMS Dispatch 
+35440   8a7     A   Ottawa DELTA    Delta   EMS Dispatch 
+35392   8a4     A   Ottawa P-R  Prescott-Russell    EMS Dispatch 
+35408   8a5     A   Ottawa SD&G     Stormont Dundas Glengarry   EMS Dispatch 
+35488   8aa     A   Ottawa TAC 1    Tactical 1      EMS-Tac 
+35504   8ab     A   Ottawa TAC 2    Tactical 2      EMS-Tac 
+35520   8ac     A   Ottawa TAC 3    Tactical 3      EMS-Tac 
+35536   8ad     A   Ottawa TAC 4    Tactical 4      EMS-Tac 
+35552   8ae     A   Ottawa TAC 5    Tactical 5      EMS-Tac 
+35568   8af     A   Ottawa TAC 6    Tactical 6      EMS-Tac 
+35584   8b0     A   Ottawa TAC 7    Tactical 7      EMS-Tac 
+35600   8b1     A   Ottawa TAC 8    Tactical 8      EMS-Tac 
+
+MOH Parry Sound CACC Talkgroups
+
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+35936   8c6     A   ParrySnd Dst    District    EMS Dispatch 
+35952   8c7     A   PrrySnd TAC1    Tactical 1      EMS-Tac 
+
+MOH Renfrew CACC Talkgroups
+
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+35888   8c3     A   RenfrewCACC     CACC    EMS Dispatch 
+35680   8b6     A   Renfrew D1  District 1      EMS Dispatch 
+35696   8b7     A   Renfrew D2  District 2      EMS Dispatch 
+35712   8b8     A   Renfrew TAC1    Tactical 1      EMS-Tac 
+35728   8b9     A   Renfrew TAC2    Tactical 2      EMS-Tac 
+
+MOH Hospital Talkgroups
+
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+32256   7e0     A   Haliburton  Haliburton Hospital     Hospital 
+36240   8d9     A   Nrthmbrlnd  Northumberland Hills Hospital (Cobourg)     Hospital 
+36336   8df     A   NapaneeGenrl    Lennox & Addington General Hospital - Napanee   Hospital 
+36352   8e0     A   Brockville  Brockville General      Hospital 
+36368   8e1     A   CarletonPlce    Carleton Place & District Memorial      Hospital 
+36400   8e3     A   Kemptville  Kemptville Hospital     Hospital 
+36480   8e8     A   Perth/SmthFl    Perth and Smiths Falls District Hospital    Hospital 
+36496   8e9     A   TrentonMemrl    Trenton Memorial Hospital   Hospital 
+36544   8ec     A   Glengarry   Glengarry Memorial Hospital     Hospital 
+36560   8ed     A   ChildrensOtt    Childrens Hospital of Eastern Ontario - Ottawa      Hospital 
+36576   8ee     A   Civic - Ottw    Civic Hospital - Ottawa     Hospital 
+36592   8ef     A   H&D GH  Hawkesbury & District General Hospital      Hospital 
+36608   8f0     A   CCH     Cornwall Community Hospital     Hospital 
+36624   8f1     A   Montfort    Montfort Hospital - Ottawa      Hospital 
+36640   8f2     A   Ott General     General Hospital - Ottawa   Hospital 
+36656   8f3     A   Queensway   Queensway Carleton Hospital (Ottawa)    Hospital 
+36672   8f4     A   Winchester  Winchester Hospital     Hospital 
+36704   8f6     A   Arnprior    Arnprior District Memorial Hospital     Hospital 
+36736   8f8     A   Pembroke    Pembroke Regional Hospital      Hospital 
+36752   8f9     A   RenfrewVic  Renfrew Victoria Hospital   Hospital 
+36768   8fa     A   StFrancis   St. Francis Memorial Hospital - Barry's Bay     Hospital 
+36800   8fc     A   Huntsville  Hunstville District Hospital    Hospital 
+36912   903     A   Campbellford    Campbellford Memorial Hospital      Hospital 
+
+MTO Maintenance Talkgroups
+
+ Contractors: Carillion Canada
+
+                         High Road Maintenance
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+38048   94a     A   2MTO COM    Zone 2 Common   Interop 
+38064   94b     A   2OTTKING DIS    Ottawa-Kingston Distr.      Public Works 
+38096   94d     A   2BFIELD     Frontenac County Operations     Public Works 
+38112   94e     A   2CPLACE     Carleton Place      Public Works 
+38128   94f     A   2HALEY  Haley Station   Public Works 
+38144   950     A   2KANATA     Kanata      Public Works 
+38160   951     A   2SUMMER     Morrisburg/Cornwall Operations      Public Works 
+38176   952     A   2VKHILL     Vankleek Hill area      Public Works 
+38208   954     A   SUPERVISOR  Supervisor B    Public Works 
+38256   957     A   2BLUE   2BLUE   Public Works 
+38272   958     A   2GREEN  Leeds/Grenville     Public Works 
+38320   95b     A   2BANCRF DIST    Bancroft Operations 1   Public Works 
+38336   95c     A   2BANCRF     Bancroft Operationss    Public Works 
+38368   95e     A   2FRAS   Kawartha Lakes area     Public Works 
+38400   960     A   2GRAFTN     Northumberland County   Public Works 
+38432   962     A   2MADOC  Hastings County Operations      Public Works 
+38464   964     A   2MARY   Hwy 401 - Belleville to Kingston Corridor (Marysville Yard)     Public Works 
+38496   966     A   2EMGRSP     2EMGRSP     Public Works 
+38576   96b     A   2BROWN  2BROWN      Public Works 
+38592   96c     A   2BLACK  2BLACK      Public Works 
+38640   96f     A   2MATAWA     Mattawa     Public Works 
+38656   970     A   2ALEX   2ALEX   Public Works 
+38672   971     A   2POWASN     Powassan    Public Works 
+38688   972     A   2HUNTSV     Huntsville      Public Works 
+38704   973     A   2DORSET     Dorset      Public Works 
+38720   974     A   2MCTIER     Mactier     Public Works 
+38736   975     A   2DUNCHR     Dunchurch   Public Works 
+38752   976     A   2PARYSD     Parry Sound     Public Works 
+38768   977     A   2BRITT  Britt   Public Works 
+38784   978     A   2RUTTER     Rutter      Public Works 
+38800   979     A   2NOELVL     Noelville   Public Works 
+38816   97a     A   2FARLEY     Farley      Public Works 
+38832   97b     A   2EMSDAL     Emsdale     Public Works 
+38928   981     A   Gravenhurst     Gravenhurst Maintenance     Public Works 
+38944   982     A   Minden  Minden Maintenance      Public Works 
+
+Correctional Services Talkgroups
+
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+39600   9ab     A   OPP Link    Smith Falls OPP Link    Interop 
+39616   9ac     A   CECC    Central East Correctional Centre    Corrections 
+39632   9ad     A   Brookside   Brookside Youth Centre      Corrections 
+39648   9ae     A   Quinte DC   Quinte Detention Centre     Corrections 
+39664   9af     A   Brockville  Brockville Jail     Corrections 
+39680   9b0     A   St.L CC     St. Lawrence Correctional Centre    Corrections 
+39696   9b1     A   O-C DC  Ottawa-Carleton Detention Centre    Corrections 
+39712   9b2     A   Spare 1     Spare 1     Corrections 
+39728   9b3     A   Spare 2     Spare 2     Corrections 
+
+Bell Mobility Radio Techs Talkgroups
+
+DEC     HEX     Mode    Alpha Tag   Description Tag  
+16  001     D   2BMR D1     Digital 1   Business 
+32  002     D   2BMR D2     Digital 2   Business 
+48  003     D   2BMR D3     Digital 3   Business 
+144     009     A   2BMR A1     Analog 1    Business 
+160     00a     A   2BMR A2     Analog 2    Business 
+176     00b     A   2BMR A3     Analog 3 

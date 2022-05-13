@@ -1,0 +1,108 @@
+/home/dwade/alt-radio/mtrunk/mtrunk -f 143.1450 -t 15 2> /home/dwade/alt-radio/mtrunk/143.1450.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 143.1000 -t 15 2> /home/dwade/alt-radio/mtrunk/143.1000.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 143.0700 -t 15 2> /home/dwade/alt-radio/mtrunk/143.0700.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.9500 -t 15 2> /home/dwade/alt-radio/mtrunk/142.9500.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.9050 -t 15 2> /home/dwade/alt-radio/mtrunk/142.9050.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.8300 -t 15 2> /home/dwade/alt-radio/mtrunk/142.8300.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.8000 -t 15 2> /home/dwade/alt-radio/mtrunk/142.8000.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.8000 -t 15 2> /home/dwade/alt-radio/mtrunk/142.8000.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.7250 -t 15 2> /home/dwade/alt-radio/mtrunk/142.7250.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.7250 -t 15 2> /home/dwade/alt-radio/mtrunk/142.7250.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.6800 -t 15 2> /home/dwade/alt-radio/mtrunk/142.6800.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.6650 -t 15 2> /home/dwade/alt-radio/mtrunk/142.6650.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.6500 -t 15 2> /home/dwade/alt-radio/mtrunk/142.6500.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.6500 -t 15 2> /home/dwade/alt-radio/mtrunk/142.6500.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.6200 -t 15 2> /home/dwade/alt-radio/mtrunk/142.6200.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.6200 -t 15 2> /home/dwade/alt-radio/mtrunk/142.6200.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.6050 -t 15 2> /home/dwade/alt-radio/mtrunk/142.6050.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.5900 -t 15 2> /home/dwade/alt-radio/mtrunk/142.5900.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.5300 -t 15 2> /home/dwade/alt-radio/mtrunk/142.5300.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.5150 -t 15 2> /home/dwade/alt-radio/mtrunk/142.5150.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.5000 -t 15 2> /home/dwade/alt-radio/mtrunk/142.5000.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.4400 -t 15 2> /home/dwade/alt-radio/mtrunk/142.4400.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.4400 -t 15 2> /home/dwade/alt-radio/mtrunk/142.4400.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.4100 -t 15 2> /home/dwade/alt-radio/mtrunk/142.4100.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.3800 -t 15 2> /home/dwade/alt-radio/mtrunk/142.3800.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.3800 -t 15 2> /home/dwade/alt-radio/mtrunk/142.3800.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.3500 -t 15 2> /home/dwade/alt-radio/mtrunk/142.3500.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.3500 -t 15 2> /home/dwade/alt-radio/mtrunk/142.3500.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.2600 -t 15 2> /home/dwade/alt-radio/mtrunk/142.2600.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.2600 -t 15 2> /home/dwade/alt-radio/mtrunk/142.2600.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.2450 -t 15 2> /home/dwade/alt-radio/mtrunk/142.2450.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.2300 -t 15 2> /home/dwade/alt-radio/mtrunk/142.2300.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 142.2150 -t 15 2> /home/dwade/alt-radio/mtrunk/142.2150.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 141.7050 -t 15 2> /home/dwade/alt-radio/mtrunk/141.7050.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 141.4200 -t 15 2> /home/dwade/alt-radio/mtrunk/141.4200.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10
+/home/dwade/alt-radio/mtrunk/mtrunk -f 141.4200 -t 15 2> /home/dwade/alt-radio/mtrunk/141.4200.stderr
+reset;echo 'sleeping for 10 seconds, ctl-c now to exit
+sleep 10

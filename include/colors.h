@@ -1,0 +1,16 @@
+#define BLACK   0
+#define BLUE    1
+#define GREEN   2
+#define CYAN    3
+#define RED     4
+#define MAGENTA 5
+#define BROWN   6
+#define WHITE   7 
+#define BRIGHTBLACK       8
+#define BRIGHTBLUE        9
+#define BRIGHTGREEN      10
+#define BRIGHTCYAN       11
+#define BRIGHTRED        12
+#define BRIGHTMAGENTA    13
+#define BRIGHTYELLOW     14
+#define BRIGHTWHITE      15

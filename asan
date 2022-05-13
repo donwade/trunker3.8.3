@@ -1,0 +1,18 @@
+#!/bin/bash
+make
+sleep 1
+rm *.bak
+rm *.txt
+rm ASAN*
+
+if [ "$1" == "" ]; then
+unset LD_PRELOAD
+./wtrunk 142.8 400
+else
+export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libasan.so.2; 
+insight wtrunk
+fi
+ls ASAN*
+sleep 10
+reset
+

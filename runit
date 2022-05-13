@@ -1,0 +1,5 @@
+#!/bin/bash
+#gdb ./mtrunk
+#export TRACKSCAN_PARK=142.800; gdb ./mtrunk
+unset TRACKSCAN_PARK; ./mtrunk -f 142.8 -t 36000
+reset

@@ -1,0 +1,22 @@
+#!/bin/bash
+FREQ=142.8
+FREQ=142.725
+
+while [ true ]; do
+    make -j4
+    ret=$?
+    echo "--------------"
+    sleep 3
+    if [ $ret == 0 ]; then
+        env | grep TRACK
+        #gdb ./mtrunk
+        #export TRACKSCAN_PARK=142.800; gdb ./mtrunk
+        unset TRACKSCAN_PARK; ./mtrunk -f $FREQ $1
+        reset
+        echo " 3 seconds to stop loop"
+        sleep  3
+    else
+        RED "failed"
+        exit 1
+    fi
+ done   
