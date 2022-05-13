@@ -1,0 +1,1542 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="description" content="Trunker 3.7 Online Documentation">
+<meta name="keywords" content="links, scanner, radio scanner, TRS, trunking, trunker">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>Trunker 3.8 Documentation</title>
+</head>
+
+<body bgcolor="#FFFFF0">
+
+<h1>Trunker Release <u>3.8.3 Official Documentation</u></h1>
+
+<p>Last updated <u><!--webbot bot="Timestamp" startspan s-type="EDITED"
+s-format="%A, %B %d, %Y" -->Tuesday, April 24, 2001<!--webbot bot="Timestamp" i-checksum="40936" endspan --></u><br>
+Copyright © 1998, 1999, 2000 - Neal R. Fildes</p>
+
+<p><big><strong><font color="#FF0000">Warning - This version of trunker may make major
+changes to your&nbsp; data files. It is highly recommended that you save a copy of them in
+a safe place before using this program. You have been warned!</font></strong></big></p>
+
+<h2>Origins</h2>
+
+<p>Some time ago there appeared on USENET a program and its source code that provided the
+rudimentary ability to decode Motorola Type I, II, and IIi trunking radio system data.
+This program is a major enhancement to that program, and is also in the &quot;public
+domain&quot; with no guaranteed support (only grassroots voluntary support.) It is totally
+free, and anyone attempting to make commercial use of it ought to get legal advice first.
+(I have heard an opinion from a scanner manufacturer that since we are not making a 2-way
+radio system with the patent, there is nothing Motorola can do legally... but I am not a
+lawyer, and I'd prefer not to finance one...)</p>
+
+<h2>Credits</h2>
+
+<p>This program, with its rich set of features, was made possible by a world-wide team of
+contributors who assisted by collecting data on existing systems, providing interface
+information for various types of scanners, testing beta versions, developing
+features,&nbsp; and offering feature suggestions. Special thanks are due IBM for making
+patents available on the WWW for all to share.</p>
+
+<h2><u>Changes from Release 3.8.2 to Release 3.8.3</u></h2>
+
+<p>This is a maintenance release aimed at resolving a number of user complaints:</p>
+
+<table border="1" width="100%" style="border: 3px solid">
+  <tr>
+    <td width="40%"><strong>Complaint</strong></td>
+    <td width="60%"><strong>Method of Addressing Complaint</strong></td>
+  </tr>
+  <tr>
+    <td width="40%">Trunker is deleting my radio IDs in hybrid banks</td>
+    <td width="60%">Pruning of duplicate IDs will no longer take place for hybrid banks.</td>
+  </tr>
+  <tr>
+    <td width="40%">I have type II radio IDs that fall in a Type I or IIi bank. Type II radio
+    IDs in that bank are being deleted.</td>
+    <td width="60%">Set TYPE2LURK=1 in trunker environment</td>
+  </tr>
+  <tr>
+    <td width="40%">When I am in HOLD mode on a group, and use the 'i' command, trunker
+    doesn't pre-populate the radio ID in the edit screen</td>
+    <td width="60%">fixed.</td>
+  </tr>
+  <tr>
+    <td width="40%">I know there is information about alternate data channels in some OSW
+    streams. Can trunker tell me about data frequencies that are seldom used?</td>
+    <td width="60%">Trunker will mark an alternate data channel with a 'a' flag unless 'd' is
+    present already.</td>
+  </tr>
+  <tr>
+    <td width="40%">I'm not seeing site/neighbor information for VHF systems.</td>
+    <td width="60%">fixed.</td>
+  </tr>
+  <tr>
+    <td width="40%">I'd like to have information such as the connect tone saved in the .sys
+    file so when someone gives me their files I know more about the system.</td>
+    <td width="60%">The description information will now appear as a comment field in the
+    saved xxxxSYS.txt field.</td>
+  </tr>
+</table>
+
+<p>Please note that in the following documentation, changes from release 3.8.2 are
+indicated by underlining.</p>
+
+<h2>Features </h2>
+
+<ul>
+  <li>With a single scanner connected to a data slicer, the Motorola Trunked Radio System's
+    control channel can be monitored and interpreted. Data is collected and displayed showing
+    critical operating parameters of the trunking system, such as whether it is a simulcast or
+    multiple-node configuration, the frequencies being used by the monitored repeater
+    (calculated automatically for 800MHz systems (both &quot;normal&quot; and
+    &quot;splinter&quot; arrangements) and 900MHz systems, and manually for other frequency
+    ranges), active group and individual calls, patches between multiple talk groups, and
+    pages between individual radios. *<a href="#walk800">See scenario below for non-800MHz
+    band plans or splinter arrangements</a>* </li>
+  <li>With the addition of a second scanner, a user can track conversations on trunked systems
+    as they move from frequency to frequency.</li>
+  <li>While monitoring the system with the second scanner and watching the display, one can
+    type&nbsp;identifying annotations of talk groups, multi-group patched calls, and
+    individual radio IDs using Trunker's command menus, and those annotations will be saved in
+    data files. Along with the text description of the ID, Trunker allows the priority and
+    color to be set while Trunker is running. By using special values in the color field, it
+    is also possible to have the selected color blink on-and-off for emphasis, as well as to
+    request a speaker tone or 'beep' be emitted when the group, radio, or multi-group patch is
+    active.</li>
+  <li>Automatically detect type-II banks within a type-II or Hybrid system based on control
+    channel data, and for identified type-II banks, interpret the status bits of group calls,
+    provide special handling for emergency calls, and suppress tracking of encrypted
+    conversations.</li>
+  <li>Automatically detect the use of a type-II radio within a type-I bank for Type IIi/Hybrid
+    systems.</li>
+  <li>Allow the user to edit data files to indicate the size code/fleet mapping of type-I
+    banks, and for those banks, displaying both the originating radio ID (and any annotations)
+    and the Bank, Fleet, and Sub Fleet components of the group ID.</li>
+  <li>Allow the user to edit data files to establish a system of display colors and monitoring
+    priorities for managing the display and tracking of active calls, such that certain
+    groups, patches, or radios may be suppressed, others allowed, and yet others may be
+    allowed to preempt active conversations of a lesser priority. It also allows certain talk
+    groups to be suppressed unless certain radio IDs are utilizing those talk groups, so that
+    a county-wide shared channel can be ignored unless personnel from one's own organization
+    or region are using that talk group.</li>
+  <li>Allow the user to 'hold' onto an active group call, patched multi-group call, or
+    individual call to better identify the group or radio ID, or to avoid missing some
+    interesting traffic.</li>
+  <li>Allow a user to 'manually' enter a hold for a specific Group ID or Multi-Group Patch ID,
+    whether or not the ID is active at the time.</li>
+  <li>Logging of pages and the groups participating in multi-group patches, both to a
+    scrolling screen window and (optionally) to a data file.</li>
+  <li>Extended logging (optional) of radio affiliations with talk groups to the screen and
+    optionally to a data file.</li>
+  <li>Allow the user to edit a data file to provide a customized mapping between a frequency
+    identifier and actual frequency in MHz, so that non-standard mappings may be described and
+    UHF/VHF configurations may be tracked.</li>
+  <li>Allow the user to identify a special type of trunked radio system that broadcasts part
+    of the call data as being associated with the repeater input frequency and part of the
+    call data as associated with the repeater output frequency (such as the 400MHz system in
+    London,UK and most UHF/VHF systems), providing the mapping of input to output frequency
+    identifier, so the two halves of the call data can be processed together and properly
+    interpreted.</li>
+  <li>Allow the user to describe the desired operating configuration for Trunker (and its
+    related programs) via multiple environment variables, or a single environment variable
+    that contains the name of a file from which it should extract its settings.</li>
+  <li>Supports an in-memory database capacity limited only by memory availability. Changes to
+    the database made with the 'I', 'P', and 'G' commands may be saved to disk with the 's'
+    command or the 'q' option in the 'esc' sub-menu.</li>
+</ul>
+
+<h2><u>Non-Features</u></h2>
+
+<ul>
+  <li>Although may users have requested it, there is not and will not be a feature (provided
+    by me) to allow you to 'hold' on a specific radio by typing in its ID. If you really
+    insist on this capability, my advice is to make use of the priority scheme to implement
+    it. Hard core fanatics may want to consider their own source modification but don't expect
+    me to 'buy it back'. (nrf)</li>
+</ul>
+
+<h2>Typical Hardware Environment:</h2>
+
+<p><img src="trbody1.jpg" alt="slicer and two scanners" width="100%" height="100%"></p>
+
+<h2>Trunker and Commercial Trunking Radios</h2>
+
+<p>For those who already own a commercially available trunking scanner, Trunker can still
+provide helpful information for using that scanner. Four areas that may be valuable
+include: 
+
+<ul>
+  <li>Frequency Determination: The trunk tracking scanners presently on the market require
+    that the user enter all frequencies into the scanner for proper operation. One can find
+    uncataloged trunked systems in their area, use Trunker to identify the frequencies, then
+    load those frequencies into the scanner for monitoring. Without Trunker, the second-most
+    practical way to do this is to try to locate the data channel frequency in some type of
+    frequency database and correlate it to associated voice frequencies. As a recent <em>Monitoring
+    Times</em> article demonstrates, this method does not necessarily expose all the
+    frequencies used by the system, since they may have a different license and/or licensee.</li>
+  <li>Talk Group Determination: Information about existing talk groups is critical to
+    effective use of the trunking scanners. Trunker assists the identification of groups by
+    allowing online annotation and displaying the raw identifier in Hex to simplify
+    determination of bank/fleet maps. Once the function of groups is identified, desirable
+    ones can be loaded into the trunking scanner's 'scan' banks, and undesirable ones can be
+    added to the trunking scanner's lockout list.Trunker can also be used to log infrequently
+    used talk groups which can be added to your scan list to help you 'catch' them.</li>
+  <li>Tracking other Frequency Bands: With the recent release of the BC245XLT® scanner, this
+    capability is now available in reasonably priced off-the-shelf scanners. However, UHF/VHF
+    systems can have up to 3 channel ranges each with a different offset and step size, and
+    the 245 only supports a single range. </li>
+  <li>Tracking Individual Calls: Since the currently available trunk tracking scanners are
+    based on a 'Group' concept, they do not track individual calls. Trunker recognizes both
+    Group and Individual IDs, thus allowing one to track radio traffic that the existing
+    (inexpensive) commercial scanners are unable to follow.</li>
+</ul>
+
+<p>For those who do not yet own a commercially available trunking scanner, Trunker can
+assist one in learning about how trunked systems operate and if they are used frequently
+enough to warrant purchase of an additional scanner.</p>
+
+<h2>Trunker and Non-Motorola Systems</h2>
+
+<p>A variant of Trunker called ETRUNK.EXE is also available for GE/Ericsson trunked
+systems. It shares the same user interface, features, and file formats as TRUNKER.EXE.</p>
+
+<h2>Use of System ID (SysId) as Primary Identifier</h2>
+
+<p>Since Trunker keeps a set of data files for each trunked system it monitors, it
+identifies them with a special field called the 'System ID' that is periodically broadcast
+by each system. It uses the SysId value to name data files and detect when the input
+scanner has moved on to another system. Since this SysId value is sent at intervals, it
+would be possible for some of the groups or IDs from the new trunked system to make their
+way into the previous system's data files. To avoid this, if Trunker senses a change of
+SysId field, it will not auto-save the data files from the previous system. The
+appropriate way to change systems and still have data saved is to use the 's' command to
+save the current system's data, then allow the scanner to search until the next trunked
+data channel is located.</p>
+
+<p>The data files for a given system will be named with this SysId value. For example, if
+a system's ID is 1b27, files will be created with the names:</p>
+
+<pre>	1b27sys.txt	frequencies and bank map
+	1b27page.txt	paging, group patch, and affiliation log
+	1b27ids.txt	information on radio IDs
+	1b27grp.txt	information on group IDs
+	1b27Ptch.txt	information on multi-group patches</pre>
+
+<h2>Networked Radio Systems</h2>
+
+<p>Larger trunked systems have a feature that allows a radio system to <u>span a broad
+geographic area by supporting an array of radio nodes</u>. Each of several repeaters in
+the large geographic area will be assigned its own set of frequencies distinct from nearby
+repeaters in the system. However, each repeater will broadcast the same SysId field and
+work from the same database of Group and Radio IDs. Trunker mimics this behavior and
+allows the frequencies from each repeater to be saved in a separate file, yet uses the
+common data base of Group and Radio IDs.</p>
+
+<p>In addition to the above file names, you will see a file for each of the repeaters in
+the system that you have monitored. Example file names would be:</p>
+
+<pre>	1b27C<u>6</u>.txt	frequencies for Repeater Node 6
+	1b27C<u>8</u>.txt	frequencies for Repeater Node 8
+	...</pre>
+
+<p>Note that if these files are used for a given system, the xxxxSYS.TXT file be
+over-written with a 3-line version containing ONLY the System Title, Bank Map, and Band
+Plan. This allows the Bank Plan from the last used repeater to be propagated to an new
+repeater file that is created. Sometimes, various repeaters may have a different band
+plan, especially with plans '8' and 'S'..</p>
+
+<p>Also, after Trunker was widely disseminated, it was brought to our attention that this
+numbering scheme was 'off by one', with the user version starting at one instead of zero.</p>
+
+<h2>A Comments About Hybrid/IIi Systems</h2>
+
+<p>Trunker will now detect the use of a type-II radio within a bank designated as type-I.
+When this occurs, Trunker will revise the bank letter for that bank to lower case (H
+becomes h) to indicate its use for both types of radios. Trunker will attempt to display
+the true type-II id of the radio instead of its type-I alias when possible. However,
+limited accuracy of the received control signal can make this impossible. Although Hybrid
+and type IIi systems are different in the appearance of the data stream, Trunker
+classifies them in the same way and provides the same treatment for the banks utilizing
+mixed radio types.</p>
+
+<h2>Environment Variables Used by Trunker</h2>
+
+<p>Rather than requiring that many command line arguments be used for parameters that are
+relatively static, Trunker uses environment variables. In addition, <u>because most
+systems tend to </u>run out of environment memory unless tunable parameters are changed,
+Trunker supports the use of a single variable containing a file name in which the rest of
+the variables may be placed.</p>
+
+<p><font color="#FF0000" size="4"><em><strong>It is Highly Recommended that you set only
+the TRACKENV variable and put the rest in a text file! Problems caused by variable
+settings not 'taking' dominate the trouble reports for this version of Trunker and you can
+avoid many problems by using this approach!</strong></em></font></p>
+
+<p>The following table shows the variables used by Trunker:</p>
+
+<table border="1" width="100%" height="419" style="border: medium double">
+  <tr>
+    <td align="center" width="27%" height="19"><strong>Variable Name</strong></td>
+    <td align="center" width="39%" height="19"><strong>Use</strong></td>
+    <td align="center" width="34%" height="19"><strong>Allowed Values</strong></td>
+  </tr>
+  <tr>
+    <td width="27%" height="38">TRACKENV</td>
+    <td width="39%" height="38">The preferred method for passing variables to Trunker is to
+    place a file name in this variable. The file would contain all the following variables in
+    a NAME=VALUE format. (The &quot;set &quot; command normally used in a .BAT file is not
+    needed.)</td>
+    <td width="34%" height="38">Any valid text file name. Example:<br>
+    set TRACKENV=c:\trackenv.bat</td>
+  </tr>
+  <tr>
+    <td width="27%" height="38">TRACKSCANPORT</td>
+    <td width="39%" height="38">The port to which the second, tracking scanner is connected</td>
+    <td width="34%" height="38">COM1, COM2, COM3, COM4</td>
+  </tr>
+  <tr>
+    <td width="27%" height="95">TRACKSCANBAUD</td>
+    <td width="39%" height="95">The baud rate at which commands are to be sent to the second,
+    tracking scanner for jumping between audio channels. The scanner must accept the same
+    setting.</td>
+    <td width="34%" height="95">300, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200</td>
+  </tr>
+  <tr>
+    <td width="27%" height="76">TRACKSCAN</td>
+    <td width="39%" height="76">The type of scanner used for audio tracking.</td>
+    <td width="34%" height="76">PCR1000, R10, R7000, R7100, R8500, AR8200, AR8000, AR5000,
+    AR2700,AR3000, AR3000A, KENWOOD, KENWOOD9600, FRG9600, BC895, BC245, OPTO (OS456, OS535),
+    OPTOCOM, NONE (For CI-5/CI-V based radios, please see the <a href="#CIVADDR">Table of
+    Addresses</a> at the end of this document!)</td>
+  </tr>
+  <tr>
+    <td width="27%" height="38">TRACKSLICERPIN</td>
+    <td width="39%" height="38">Pin for input from the Data Slicer. If this is incorrect, the
+    proper setting can be determined from within Trunker using the 'C'onfig menu.</td>
+    <td width="34%" height="38">CTS, DSR, DCD</td>
+  </tr>
+  <tr>
+    <td width="27%" height="38">TRACKSLICERPORT</td>
+    <td width="39%" height="38">The com port to which the data slicer is connected (via the
+    input lead specified in the TRACKSLICERPIN variable.)</td>
+    <td width="34%" height="38">COM1, COM2, COM3, COM4</td>
+  </tr>
+  <tr>
+    <td width="27%" height="17">TRACKSCANPARK</td>
+    <td width="39%" height="17">Set this variable to a frequency that normally has no traffic,
+    or which you would want to monitor if no trunked traffic is active.&nbsp; Trunker will
+    switch to this frequency when no calls are present or none of the active calls have a
+    priority &lt;= 50. By specifying this value, you can eliminate the possibility that
+    Trunker will park on a frequency that has an active conversation but which you do not want
+    to monitor.</td>
+    <td width="34%" height="17">example: 854.0000 or any other frequency reachable by the
+    scanner without changing from NFM mode Some users report problems with frequencies less
+    than 100MHz for this variable with BC895XLT as the controlled scanner..</td>
+  </tr>
+  <tr>
+    <td width="27%" height="17">NOEMERGENCY</td>
+    <td width="39%" height="17">Set this variable if you wish to suppress special processing
+    of Emergency calls. At least one Trunker user reported that on their trunked system an
+    emergency button may stay uncleared for hours!</td>
+    <td width="34%" height="17">1 to enable this option</td>
+  </tr>
+  <tr>
+    <td>TRACKDIGITAL</td>
+    <td>Set this variable if you want Trunker to follow digital&nbsp; and encrypted calls
+    instead of treating them as un-scannable.</td>
+    <td>1 to enable this option</td>
+  </tr>
+  <tr>
+    <td width="27%" height="17">TRACKSLICERMODE</td>
+    <td width="39%" height="17">Indicates whether the input should be inverted or not. Usually
+    INVERT for inverting data slicer circuits. Trial and error may be necessary to determine
+    the proper setting. <em>If you used the /I flag with Trunker 3.42 or higher, this should
+    be set to NORMAL. However, some Trunker users report having to reverse this option for UHF
+    systems. </em>I<u>f this setting is incorrect, it can be temporarily adjusted using the
+    'C'onfig menu.</u></td>
+    <td width="34%" height="17">NORMAL, INVERT</td>
+  </tr>
+  <tr>
+    <td width="27%" height="17"><u>TYPE2LURK</u></td>
+    <td width="39%" height="17"><u>type II radios overlap type I banks. Don't remove them from
+    the data file.</u></td>
+    <td width="34%" height="17"><u>1 to enable this option</u></td>
+  </tr>
+  <tr>
+    <td width="27%" height="17">FILTERLOG</td>
+    <td width="39%" height="17">When selected, limits logging of data for
+    radios/groups/patches to those items with priority &lt;= the Threshold setting</td>
+    <td width="34%" height="17">1 to enable this option</td>
+  </tr>
+  <tr>
+    <td width="27%" height="17">NEWRADIO</td>
+    <td width="39%" height="17">When in SEEKNEW mode, treats new/prty=0 radios as if they had
+    this priority. This can help you pick up radios that only seem to participate in I-calls.</td>
+    <td width="34%" height="17">a number between 0 and 99</td>
+  </tr>
+  <tr>
+    <td width="27%" height="17">NEWGROUP</td>
+    <td width="39%" height="17">When in SEEKNEW mode, treats new/prty=0 groups as if they had
+    this priority</td>
+    <td width="34%" height="17">a number between 0 and 99</td>
+  </tr>
+  <tr>
+    <td width="27%" height="17">TRACKCOLORS</td>
+    <td width="39%" height="17">Allows you to adjust the colors used by Trunker. Includes a
+    list of exactly six colors. These colors are designated (in order of appearance)<p><em>background</em>
+    - used for the base screen color behind the text<br>
+    <em>quiet</em> - used for field labels, dividers, and annotations during the delay
+    interval<br>
+    <em>normal</em> - used for field values<br>
+    <em>active</em> - used when a frequency is active<br>
+    <em>warn</em> - used for warning messages like poor %acc<br>
+    <em>error</em> - used for error messages</p>
+    <p>An example usage (close to default values):</p>
+    <p>TRACKCOLORS=0,2,7,14,14,4</td>
+    <td width="34%" height="17">a comma-separated list of exactly six color numbers, between 0
+    and 31. This allows the 16 colors listed below (0..15)&nbsp; + 16 for blinking (or
+    equivalent representation on your specific display card.)</td>
+  </tr>
+</table>
+
+<h2>Command Line Arguments</h2>
+
+<p><em>None</em> - if you provide any, a list of environment variables will be printed
+out.</p>
+
+<h2>Getting Started</h2>
+
+<p>First, identify which signal lead (DSR, CTS, or DCD) the slicer signal is wired to,
+then edit a <u>.txt</u> file containing your environment variables. A good way to check
+your data slicer and determine its configuration is a freeware program called SLICER.EXE.
+Once you know which pin is used, set up the configuration. First, create a global file
+that contains the variable settings you want for Trunker. It is best to use this file
+rather than put 'set' commands in autoexec.bat because it is easy to exceed the limits on
+environment space. Here is a sample &quot;TRACKENV.TXT&quot;:</p>
+
+<pre>	TRACKSLICERPORT=COM1
+	TRACKSLICERPIN=CTS
+	TRACKSLICERMODE=INVERT
+	TRACKSCANPORT=COM1
+	TRACKSCAN=AR8000
+	TRACKSCANPARK=854.0000
+	NEWRADIO=10
+	NEWGROUP=8
+	FILTERLOG=1
+</pre>
+
+<p>Next, refer to this file via a SINGLE variable setting in AUTOEXEC.BAT. Assuming this
+file's name is c:\trackenv.txt, place the following line in AUTOEXEC.BAT and reboot:</p>
+
+<pre>    	set TRACKENV=C:\TRACKENV.TXT</pre>
+
+<p>Running Trunker in a DOS window (on a fast WINDOWS system) or under DOS, you should see
+a 43-line Trunker display:</p>
+
+<p><img src="blnkscan.gif" alt="blankscan.bmp (240118 bytes)" width="800" height="600"><br>
+Next, tune the input scanner to the data channel of the trunked system to be analyzed.
+After several seconds, the display should look something like this:</p>
+
+<p><img src="begin.gif" alt="begin.bmp (240118 bytes)" width="800" height="600"><font
+size="2" face="Courier New"><br>
+</font>If, after 10-20 seconds, you see a status field of wantCTS, for example, it means
+that the TRACKSLICERPIN variable is incorrect. You can use the 'c' command to enter the
+CONFIGURATION menu, which will allow you to select the various input pins and polarities
+to find the correct settings. Once you have identified these, you can go back and change
+the values of&nbsp; TRACKSLICERPIN and TRACKSLICERMODE for subsequent runs. Some Trunker
+users have noted that the normal/invert modes may need to be set on a system-by-system
+basis!</p>
+
+<p>At this point, Trunker has determined many of the key parameters of this system. Since
+a call is in progress, Trunker is beginning to identify the voice frequencies in use. The
+system ID is 1f3e, and that code will be used to name the .txt files Trunker saves. This
+system either has a single repeater site, or multiple sites that all broadcast
+simultaneously on the same frequencies. The call in progress shows that the first bank (of
+8) is a Type-II bank.This is saved in the 1f3eSYS.TXT file with the string MAP=2???????.
+The current call is for group (decimal) 3536 (or hex 0DD0 or Motorola Style 0DD). If one
+were to annotate this group by typing <em>g0dd0Police Dispatch&lt;return&gt;</em>, the
+line would read:</p>
+
+<p><font size="2" face="Courier New">v857.2375*&nbsp; 49 Police Dispatch
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #</u>0dd0 G ----</font><br>
+<font size="2"><br>
+</font>Once Trunker sees traffic on all of the active voice frequencies and identifies the
+data channel frequency, the list will look something like this:</p>
+
+<p><font size="2" face="Courier New">Type II 97.3 Hz
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; Scanner: AR8000&nbsp;&nbsp;&nbsp;&nbsp; Status: Hi-Qual Acc:
+&nbsp; 83.0%<br>
+SysId: 1f3e Type: 2??????? Title: UnNamed System<br>
+&nbsp;&nbsp; Output&nbsp;&nbsp; Pr
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Trunker &lt;version&gt;<br>
+&nbsp; Frequency ty Destination Title
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ID&nbsp;T&nbsp; ID &nbsp;
+Caller Title<br>
+cdv-------- -- -------------------- ..... ---- - ---- --------------------------<br>
+&nbsp; v856.7625*49 ?
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>&nbsp;
+&nbsp;&nbsp;&nbsp; #</u>0730 G 149e ?<br>
+&nbsp; v857.2375<br>
+&nbsp; v857.7625 49 ?
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>&nbsp;
+&nbsp;&nbsp;&nbsp; #</u>0a90 G 206c ?<br>
+&nbsp; v858.2375<br>
+&nbsp; v858.7625 49 ?
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>&nbsp;&nbsp;
+&nbsp;&nbsp; #</u>0110 G 13e9 ?<br>
+d 859.7625<br>
+<br>
+</font>If you edit the flat files produced by Trunker (either offline via text editor or
+database system or online with the 'g', 'i', and 'p' commands,) adjusting priorities and
+colors, you can get a display something like this:</p>
+
+<pre><font size="2" face="Courier New">Type II 97.3 Hz            &nbsp;&nbsp;&nbsp;&nbsp; Scanner: AR8000     Status: Hi-Qual Acc:  85.3%
+SysId: 1f3e Type: 22222222 Title: Warren County SmartNet-II
+   Output   Pr                                                 Trunker &lt;version&gt;
+  Frequency ty Destination Title           ID  T  ID  Caller Title
+cdv-------- -- -------------------- ..... ---- - ---- --------------------------
+c v856.2375
+  v856.7625*01 Mutual Aid           <u>     #</u>0590 G 14ec B P Mutual Aid ???
+  v857.2375
+ dv857.7625 06 WCCC Primary         <u>     #</u>0170 G 1c04 P P Waynesville 1/2William
+  v858.2375
+ dv858.7625 08 M F Springboro 2101  <u>     #</u>16b6 I 16a9 M F Springboro 2103 Car
+  L859.2375
+ dv859.7625
+  L860.2375
+ dv860.7625
+</font></pre>
+
+<p>Referring to the next (color) screen shot, the police entries are blue, the fire /
+public safety entries red, and any shared group (mutual aid) magenta. I've distinguished
+between nearby organizations (bright blue or bright red) and less interesting ones (dark
+blue, dark red.) You can also see from this example that it is possible to re-arrange the
+frequencies in the xxxxSYS.TXT file and Trunker will maintain that ordering. I have
+manually added the frequencies with the 'L' in the voice column, indicating that the
+system is licensed to use those frequencies. However, should the system ever actually use
+them, Trunker will substitute a 'v' for that column, and I would then know that they have
+been placed in service. Finally, note that many systems change data channel frequencies
+daily or at random, so you will not &nbsp; necessarily have four 'd' entries at first. You
+may have to search for the data channel on another day, first checking the known voice
+frequencies, then trying other frequencies within the pattern.</p>
+
+<p>Here is a (partial) live screen shot of Trunker in action, monitoring the Warren
+County, Ohio system:</p>
+
+<p><img src="actual.gif" alt="actual.bmp (68342 bytes)" width="649" height="208"></p>
+
+<p>&nbsp;</p>
+
+<h2>Usage Scenarios</h2>
+
+<h3>Gathering information on local trunked systems</h3>
+
+<p>With your scanner locked onto the data channel to be investigated, start Trunker. Once
+Trunker locks in on the signal, it will show the system ID and begin to collect
+information. If Trunker has already seen that system, it will retrieve the data files
+previously saved and note the use of the current frequency as a data channel. As there is
+activity on the system, it will step through the voice channels available. In order to
+fully collect information on the system, it may be necessary to find the system's data
+channel again on a number of days until all of them have been found (a maximum of four
+frequencies are used). If you want to look up the licensee for the system, wait until the
+CWID channel appears (a 'c' in column 1), then monitor that frequency until the callsign
+is heard. In larger systems, the first channel is often not used for voice traffic, so the
+only way to find the CWID channel is through the data channel &quot;diagnostic&quot;
+command. </p>
+
+<h3><a name="walk800">Handling Bandplans for 900MHz Systems, Splinter 800MHz Arrangements,
+and Custom Mappings</a></h3>
+
+<p>By default, Trunker will interpret frequency assignments according to a
+&quot;standard&quot; 800MHz map. Use the following process to initialize the xxxxSYS.TXT
+file for 900MHz, UHF systems, splinter 800MHz arrangements, or other systems that do not
+conform to the standard mappings: 
+
+<ol>
+  <li>With no xxxxSYS.TXT file in the current directory, start Trunker.</li>
+  <li>Once the SysId appears, stop Trunker with the 'q' command.</li>
+  <li>Edit the xxxxSYS.TXT file. Note the accuracy of the data channel entry to determine if a
+    splinter arrangement is required. Delete <em>all</em> frequency entries.</li>
+  <li>Add one of the following lines to the file, in uppercase and beginning in column 1, or
+    edit one if it exists already:<br>
+    PLAN=8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for US 800MHz frequency plan<br>
+    PLAN=S&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for Splinter 800 MHz plan (Trunker shows
+    the data channel 12.5kHz higher than the true frequency)<br>
+    PLAN=9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for US 900MHz frequency plan<br>
+    PLAN=0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for <em>all other plans</em> including
+    UHF, VHF and custom 800/900</li>
+  <li>Save the file.</li>
+  <li>Run Trunker again and accumulate frequencies until the list is stable.</li>
+  <li>Stop Trunker with the 'q' command.</li>
+  <li>Edit the xxxxSYS.TXT file as appropriate, replacing any hex values with the frequencies
+    you have determined are appropriate. This may require searching a database of frequency
+    assignments etc. If you set PLAN=8 or PLAN=9, or PLAN=S, most of the frequencies will be
+    computed already by Trunker. If your system uses non-standard mappings, it will be
+    necessary to edit any incorrect lines. If you must edit the lines, it is critical to
+    maintain the exact spacing including the first three special characters and the F8.4
+    format.</li>
+  <li><strong>Special step only for systems that broadcast both the input and output
+    frequencies (Especially UHF/VHF Systems)</strong>: notice when pairs of frequencies are
+    energized in synchrony at the beginning of a conversation, and record those pairings. Then
+    move the input frequency to the 'input frequency' column of the output frequency's entry,
+    and delete the line for the input frequency. For example, if 0x015 and 0x207 are related,
+    and 0x207 represents 407.05, carefully change the file entries:<br>
+    <strong>From</strong>:<br>
+    [blank][blank]v0x015[3 blanks],15,ffff,103<br>
+    [blank][blank]v0x207[3 blanks],207,ffff,102<br>
+    <strong>To:</strong><br>
+    [blank][blank]v407.0500,207,15</li>
+</ol>
+
+<h3>Analyzing Group Assignments</h3>
+
+<p>While using one scanner to monitor the data channel with Trunker, simultaneously
+monitor the frequencies it has exposed with a second scanner (or better yet, if you have a
+supported scanner, hook it up and use the tracking feature.) By simultaneously listening
+and watching, one can associate the conversation (especially unit designations) with a
+specific voice ID, and collections of users doing a particular activity (such as fire
+dispatch) with a group ID. Using the 'G' and 'I' commands, one can quickly add information
+to Trunker's data base in real-time. </p>
+
+<p>To get a comprehensive list of groups and IDs, it is also possible to let Trunker run
+for days as necessary. For this to work, the scanner that is monitoring the data channel
+must be programmed with all of the data frequencies Trunker exposes and set up with proper
+squelch etc. so when the data channel changes frequency, the scanner will skip to the new
+one.</p>
+
+<p>Once one has identified a group as having a specific function, Trunker will
+automatically annotate any new radios as having used that group the first time the radio
+was seen. One can than fine-tune the xxxxIDS.TXT file online with the 'i' command to set
+priority, color and title, or offline with a text editor.</p>
+
+<p>Over time, should radio IDs get re-used, it is easy to notice a discrepancy in the
+display and update the annotation without stopping Trunker.</p>
+
+<p>Recommended settings for this mode include Delay,not Verbose, and seekNew. If you use
+the audio scanner in trunk-tracking mode while using these settings, the program will give
+highest priority to the unknown group IDs to assist in identification. Once you have
+identified a group or user, you can use the 'I' or 'G' command to note its use and set its
+priority to a non-zero value, preventing future jumps to that group or user unless it is
+associated with call to a group or individual with a scannable priority.</p>
+
+<p>The recommended approach for analyzing a new system is to first monitor the talk groups
+with the 'Verbose' option turned off and 'seekNew' turned on. Once you have the majority
+of talk groups identified, prioritized, and colored, then turn on the 'Verbose' mode. At
+this point, as each new radio is identified, since the talk groups are already annotated,
+each radio will then be assigned a text string noting the first talk-group it is seen on.
+As you see a white radio entry, you can then update its text string, priority, and color
+as appropriate. The seekNew option only seeks to new GROUPS so these new radios will not
+interfere with your monitoring process.</p>
+
+<h3>Handling Multi-Group Patch Calls</h3>
+
+<p>Sometimes a multiple group call is set up from one of the trunked system consoles. Each
+'Patch' as it is referred to by Trunker, has a unique patch id and a list of associated
+group IDs. While that patch is being broadcast over the data channel, any calls by one of
+the participating groups' radios will be processed specially (based on the low 8 bits of
+the group ID known as 'flags'.) The text associated with the patch will appear with a 'P'
+in the T(ype) column. You can edit that text with the 'P' command after you enter the hex
+Patch ID.</p>
+
+<p>If you have not edited a Patch record, the patch record will take on most of the
+characteristics of the participating group with the best priority.</p>
+
+<p>If the patch occurs in a Type I bank, you will instead see the Group ID and Radio ID of
+one of the participating members, but you can see the list of participants in the Log
+window (and the xxxxpage.txt file if disk Logging is turned on.)</p>
+
+<h3>A Note about Automatic Annotation and Saving of Groups and IDs</h3>
+
+<p>Two features of Trunker are intended to support the collection of data about the users
+and groups in the trunked system. 
+
+<ul>
+  <li>Automatic Annotation will update user radio ID records with the name of the talk group
+    where the radio last appeared. In this version, the annotation will look something like
+    this:</li>
+</ul>
+
+<blockquote>
+  <blockquote>
+    <font size="2"><p>[#0170]WCCC Primary</font></p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <p><font size="3">This annotation is what would appear if the display format was HEX, and
+  the radio in question <em>last</em> <em>used</em> group 0170(hex) titled &quot;WCC
+  Primary&quot;. When the display mode is changed, these annotations will be modified to
+  contain a decimal code.</font></p>
+</blockquote>
+
+<ul>
+  <li><font size="3">The scanning behavior for newly discovered radios and groups are modified
+    by the value of environment variables NEWRADIO and&nbsp; NEWGROUP, respectively, as well
+    as the setting of the SEEKNEW option.</font></li>
+</ul>
+
+<h3>2-Scanner Trunk-Tracking with a Supported Scanner</h3>
+
+<p>The audio scanner can be used to track the channels based on priority by hooking the
+TxD lead through a level converter to the serial input of the scanner. The scanner should
+be hooked up prior to starting Trunker. Trunker will put it into VCO mode, set the step,
+and drive it with the proper frequencies. Assuming one has already identified groups and
+IDs, and would not want to snap to new ids, you probably don't want the seekNew option
+set. The Delay and Verbose settings could be used according to user preference. Note that
+the equivalent of 'locking out' groups or IDs is accomplished by setting the priority for
+the groups and IDs greater than 50. </p>
+
+<h2>Detailed Documentation</h2>
+
+<h3>Meanings and Possible Values of Key Fields</h3>
+
+<table border="1" width="100%" height="942">
+  <tr>
+    <td width="14%" height="19"><strong>Field Name</strong></td>
+    <td width="20%" height="19"><strong>Values</strong></td>
+    <td width="66%" height="19"><strong>Meaning</strong></td>
+  </tr>
+  <tr>
+    <td width="14%" height="574" rowspan="7"><strong>&lt;none, used to be Flavor&gt;</strong></td>
+    <td width="20%" height="76">old Type I</td>
+    <td width="66%" height="76">This is an older Type-I system that is limited in function. It
+    does not broadcast the types of data words that would be necessary to support multicast or
+    networked operation. It will normally take 10-30 seconds for the system ID to be
+    determined for this type of system since the ID is not broadcast very often.</td>
+  </tr>
+  <tr>
+    <td width="20%" height="76">Type I</td>
+    <td width="66%" height="76">Normal Type I system, only has feature set recognized by Type
+    I radios.</td>
+  </tr>
+  <tr>
+    <td width="20%" height="76">Type II</td>
+    <td width="66%" height="76">Normal Type II system, may be single site or Multicast, and
+    may serve type I radios, Type II radios, or a mixture of both. May be a Type IIi system
+    but trunker has not observed any evidence of IIi behavior.</td>
+  </tr>
+  <tr>
+    <td width="20%" height="76">Type IIi</td>
+    <td width="66%" height="76">A Type II system where one or more banks are Type 1 and a Type
+    2 radio has been detected masquerading as a Type I radio.</td>
+  </tr>
+  <tr>
+    <td width="20%" height="76">Type II Astro</td>
+    <td width="66%" height="76">A Type II system with ASTRO features.</td>
+  </tr>
+  <tr>
+    <td width="20%" height="76">Type xxx NetCap</td>
+    <td width="66%" height="76">System is capable of being part of a multiple-site network,
+    where each repeater would have its own set of frequencies. This value may appear
+    momentarily before Trunker observes an indication of the existence of neighboring
+    nodes/sites.</td>
+  </tr>
+  <tr>
+    <td width="20%" height="38">Type xxx Netwkd</td>
+    <td width="66%" height="38">This networkable site has broadcast information about its
+    peers so is believed to be part of a networked system.</td>
+  </tr>
+  <tr>
+    <td rowspan="4" width="14%" height="170"><strong>Status</strong></td>
+    <td width="20%" height="38">DX Rcv</td>
+    <td width="66%" height="38">Accuracy of the data words received is &lt;= 80%. A stronger
+    signal would improve performance of Trunker.</td>
+  </tr>
+  <tr>
+    <td width="20%" height="38">Hi-Qual</td>
+    <td width="66%" height="38">A received data accuracy &gt; 80% indicates Trunker will
+    monitor this system effectively.</td>
+  </tr>
+  <tr>
+    <td width="20%" height="38">sig?inv</td>
+    <td width="66%" height="38">A signal appeared at the requested input pin but either is not
+    present (check input scanner) or the invert option needs to be reversed.</td>
+  </tr>
+  <tr>
+    <td width="20%" height="38">wantCTS, wantDSR, wantDCD</td>
+    <td width="66%" height="38">The selected pin does not have a signal on it. Check
+    connection or try other input pins until you identify where your slicer applies the
+    signal.</td>
+  </tr>
+  <tr>
+    <td rowspan="12" width="14%" height="295"><strong>T</strong> (call type)</td>
+    <td width="20%" height="38">G,H</td>
+    <td width="66%" height="38">Group call - any radio affiliated with that group receives the
+    audio as a 'broadcast'. 'H' indicates a hybrid call where a Type-II radio is accessing a
+    Type-I bank.</td>
+  </tr>
+  <tr>
+    <td width="20%" height="19">I,F</td>
+    <td width="66%" height="19">Individual or other call - radio traffic not related to a
+    'Group' broadcast.</td>
+  </tr>
+  <tr>
+    <td width="20%" height="38">E (blinking red)</td>
+    <td width="66%" height="38">Emergency call - A radio user affiliated with this group has
+    pressed the EMERGENCY button and has not yet reset it. Unless the 'NOEMERGENCY' variable
+    is set, the appearance of this type of call will be accompanied by a long, medium-pitch
+    speaker tone.</td>
+  </tr>
+  <tr>
+    <td width="20%" height="18">A</td>
+    <td width="66%" height="18">All Talk Groups</td>
+  </tr>
+  <tr>
+    <td width="20%" height="19">P</td>
+    <td width="66%" height="19">Patch - multiple groups are logically associated and all
+    radios affiliated with all groups in the Patch can hear the sender as a 'broadcast'</td>
+  </tr>
+  <tr>
+    <td width="20%" height="19">M</td>
+    <td width="66%" height="19">Multi-Select - multiple repeaters are participating in the
+    call, one for each associated talkgroup</td>
+  </tr>
+  <tr>
+    <td width="20%" height="38">g</td>
+    <td width="66%" height="38">Encrypted group call</td>
+  </tr>
+  <tr>
+    <td width="20%" height="38">e (blinking red)</td>
+    <td width="66%" height="38">Encrypted emergency call.</td>
+  </tr>
+  <tr>
+    <td width="20%" height="18">a</td>
+    <td width="66%" height="18">Encrypted ATG</td>
+  </tr>
+  <tr>
+    <td width="20%" height="19">p</td>
+    <td width="66%" height="19">Encrypted Patch</td>
+  </tr>
+  <tr>
+    <td width="20%" height="19">m</td>
+    <td width="66%" height="19">Encrypted multi-select</td>
+  </tr>
+  <tr>
+    <td width="20%" height="19">Gd, gd, Ed, ed, Ad, ad, Pd, pd, Md, md, Id, Fd</td>
+    <td width="66%" height="19">The small 'd' next to one of the above letters indicates a
+    digital call.</td>
+  </tr>
+  <tr>
+    <td width="14%" height="168" rowspan="4"><strong>Type</strong></td>
+    <td width="20%" height="38">????????</td>
+    <td width="66%" height="38">Trunker has not seen evidence that any of the banks are
+    Type-II, and the flat file has not been modified to specify any Type-I banks.</td>
+  </tr>
+  <tr>
+    <td width="20%" height="38">'2' in a column</td>
+    <td width="66%" height="38">That bank has been observed to be a Type-2 bank, or the flat
+    file has been edited to request that Trunker treat it that way.</td>
+  </tr>
+  <tr>
+    <td width="20%" height="38">a letter between 'A' and 'N' in a column</td>
+    <td width="66%" height="38">That bank is to be interpreted as a Type-1 bank. See the <a
+    href="#fleets">Fleet Map Table</a> below. *** These are NOT the Motorola Bank Size Codes
+    ***</td>
+  </tr>
+  <tr>
+    <td width="20%" height="38">a letter between 'a' and 'n' in a column</td>
+    <td width="66%" height="38">That bank is a Type-1 bank in which Type-2 radios sometimes
+    participate using special command signals that are part of a Type IIi system.</td>
+  </tr>
+  <tr>
+    <td rowspan="4" width="14%" height="219"><strong>PLAN</strong></td>
+    <td width="20%" height="95">8</td>
+    <td width="66%" height="95">800 MHz &quot;Standard&quot; plan - varied -<br>
+    for fnum = 0 through 0x2CF, 851.0125 + .025*fnum,<br>
+    for fnum = 0x2D0 through 0x2F7, 848.0000 + .025*fnum<br>
+    for fnum = 0x32F through 0x33F, 846.6250 + .025*fnum<br>
+    for fnum = 0x3C1 through 0x3FE, 843.4000 + .025*fnum<br>
+    for fnum = 0x3BE, 868.9750</td>
+  </tr>
+  <tr>
+    <td width="20%" height="19">S</td>
+    <td width="66%" height="19">800 MHz &quot;Splinter&quot; plan - varied -<br>
+    for fnum = 0 through 0x257, 851.0000 + .025*fnum,<br>
+    for fnum = 0x258 through 0x2cf, 866.0125 + .025*(fnum-0x258)<br>
+    for fnum = 0x2D0 through 0x2F7, 866.0000 + .025*(fnum-0x2d0)<br>
+    for fnum = 0x32F through 0x33F, 867.0000 + .025*(fnum-0x32f)<br>
+    for fnum = 0x3C1 through 0x3FE, 867.4250 + .025*(fnum-0x3c1)<br>
+    for fnum = 0x3BE, 868.9750</td>
+  </tr>
+  <tr>
+    <td width="20%" height="19">9</td>
+    <td width="66%" height="19">900 MHz &quot;Standard&quot; plan - 935.0125 + .0125*fnum,
+    fnum is 0 through 0x1DE</td>
+  </tr>
+  <tr>
+    <td width="20%" height="38">0</td>
+    <td width="66%" height="38">non-standard - new frequencies appear in hex, and must be
+    edited for customized mapping.</td>
+  </tr>
+</table>
+
+<h3>Requirements</h3>
+
+<ul>
+  <li>Trunker 3 is intended to run under MS-DOS. Although it has been shown to run under
+    Windows-95 and Windows-98, no assurances are made of compatibility or fitness for use.
+    Those attempting to try should use `Full Screen' mode and disable CPU-burning screen
+    savers. A reduction of about 5-10% in accuracy can be expected because of interrupt
+    service latency under Win95/98.The emulated UARTS in some multifunction system board ICs
+    lock up under the high interrupt rates present with the data slicer signal. It does not
+    seem to be a problem under MS-DOS</li>
+  <li>One must understand that decoding and interpreting data at 3600 bits-per-second and
+    looking up records for thousands of groups and radio IDs places a certain demand on a CPU.
+    Please don't feel slighted if your 386 or 486 system can't handle the demands of Trunker. </li>
+</ul>
+
+<h3>Data Files</h3>
+
+<p>Trunker 3 generates and later reads four or more data files, with names based on the
+16-bit SysId value: 
+
+<dl>
+  <dt>xxxxSYS.TXT</dt>
+  <dd>the system information. (xxxx is the hex SysId value.) This file contains a line in
+    which the user may label the system, a line in which the bank types / fleet mappings are
+    specified, and a long-term history of the frequencies utilized by this system. </dd>
+  <dt><u>xxxxCn.TXT</u></dt>
+  <dd>The equivalent of the SYS file for an individual repeater node in a networked system. </dd>
+  <dt>xxxxPAGE.TXT</dt>
+  <dd>A running log of detailed information may optionally be logged in this file. The exact
+    contents are adjusted with the 'o' menu, and include, among other things, information
+    about patches,&nbsp; affiliations, system diagnostics, emergency signals, call alerts, and
+    broadcasts of neighboring nodes.</dd>
+  <dt>xxxxIDS.TXT</dt>
+  <dd>a CSV file containing all of the individual IDs found on the system, with associated
+    priority, color, and text label. </dd>
+  <dt>xxxxGRP.TXT</dt>
+  <dd>a CSV file with identical format to xxxxIDS.TXT, but providing information for the
+    groups utilized on the system. </dd>
+  <dt>xxxxPTCH.TXT</dt>
+  <dd>a CSV file with identical format to xxxxIDS.TXT, but providing information for the
+    multi-group patches observed on the system. Any changes to the annotation for these
+    patches with the 'p' command will be saved in this file. </dd>
+</dl>
+
+<h3>Keystroke Options</h3>
+
+<p>While Trunker is running, keystroke commands control various operating parameters and
+saving of data. When the data files are saved, the current settings of toggled options
+(NVDXLF) are saved in the xxxxSYS.TXT file. The keystrokes are: 
+
+<ul>
+  <li>A frame-sync indicator may be turned on and off ('f' key.) </li>
+  <li>A delay-hold may be applied to groups after they become inactive so one can note the
+    group id or allow the conversation to be tracked over a gap of a couple seconds ('d' key.)
+  </li>
+  <li>Verbose mode that shows the destination Group or ID as well as the Source ID, or
+    non-verbose mode that only shows the destination ('v' key.) </li>
+  <li>Save data files ('s' key.) </li>
+  <li>Exit sub-menu (&lt;esc&gt; or 'q' keys.) </li>
+  <li>Option sub-menu ('o' key)</li>
+  <li>Enter into the data set the label text, priority, and color associated with a group,
+    radio, or patch ('g', 'p', or 'i' keys.) </li>
+  <li>seekNew mode: snaps new users to highest priority for rapid identification ('n' key.) </li>
+  <li>Enter a <em>hold</em> mode for the currently scanned conversation. This could be either
+    a Group call, Multi-Group Patch call, a call involving a pair of Individuals, or a
+    single-individual, depending on the current display at the time the 'h' key is used,
+    regardless of its priority or digital status. Hitting 'h' while holding will return to
+    search mode('h' key.) You can also enter hold mode with the &quot;up arrow&quot; or
+    &quot;down arrow&quot; keys. In this case, the call immediately above or below the current
+    call will be selected for hold mode. Repeatedly hitting up arrow or down arrow will move
+    the 'hold' from active call to active call, so you can have more control over which calls
+    you hear.</li>
+  <li>Manually enter a hold mode, where you can type in an arbitrary Group ID, whether or not
+    the ID is active at present ('m' key.) As with the normal hold mode, the 'h' key will halt
+    the manual mode and return search mode. <em>Note that this key is different from the
+    capitalized version!</em></li>
+  <li>Manually enter a hold mode, where you can type in an arbitrary Multi-Group Patch ID,
+    whether or not the patch is active at present ('M' key.) As with the normal hold mode, the
+    'h' key will toggle the mode back to search mode. <em>Note that this key is different from
+    the lowercase version!</em></li>
+  <li>Enter a configuration sub-menu in which you can experiment with the slicer pin selection
+    and mode (normal/invert) - 'c' key.</li>
+  <li>Use the 'T' key to set the 'audio scanning threshold' to a value different from 50 - any
+    group/id with prty &lt;= the threshold will be eligible for audio scanning, any greater
+    priority will be suppressed.</li>
+  <li>Any other commands will appear in the menu. This is not necessarily an exhaustive list.</li>
+</ul>
+
+<p>Note that the menu may take more than one line, so the 'space' key will switch between
+menus. A particular menu item need not appear to be accessible - the keystrokes will work
+whether the particular item is visible or not. </p>
+
+<h3>Notes on Editing Trunker Records</h3>
+
+<p>When you enter the 'G', 'P', or 'I' key, you will be prompted for the group, patch, or
+radio ID (in hex or decimal depending on the current format setting.) Type in the hex(or
+decimal as appropriate) radio, group, or patch ID. Do NOT try to type in a textual Type 1
+Group Annotation, such as <font size="2" face="Courier New">&quot;3 02-12</font><font
+face="Courier New">&quot;</font>. For a Multi-Group Patch, type in the 4 or 5 character
+patch ID, as seen on the displayed call or observed on the paging/patch log window.</p>
+
+<p>After typing the last character of the ID, or hitting ENTER or TAB after less than 4(or
+5) characters, Trunker will display the current data record. You may edit the Title,
+Priority, and Color fields. To move to the next field, use the TAB key. To move within a
+field use the left and right arrow keys. Backspace is destructive, and the Insert and
+Delete keys function in the normal manner. You may either abort the current update with
+the &lt;escape&gt; key at any time, or commit the changes without tabbing through the
+remaining fields by using the ENTER key. Also, the Right Arrow key can be used to skip
+from the last column of a field to the first column of the next, but you cannot go back
+with the Left Arrow key.</p>
+
+<p>When you reach the 'color' field, a colorized prompter will appear on the bottom line
+of the screen to help you select the proper color code. You can add 16 to the value shown
+for blinking, and/or add 32 to the value for a 'beep' from the speaker. Note that whatever
+color is the background color will not be seen in that menu, since it 'blends in' to the
+background. </p>
+
+<h3>Screen Areas</h3>
+
+<h4>Channel Status Area</h4>
+
+<p>This area of the screen contains static data about the frequencies used by the system,
+and real-time information about the current state of the various frequencies. 43-line mode
+is used to allow the full 28 (27 voice + 1 CWID) frequencies to be displayed. Only those
+frequencies actually used for voice, data, or CWID are retained in the xxxxSYS.txt file.
+In the channel area, the first three columns carry flags about the particular frequencies:
+
+<dl>
+  <dt>C:</dt>
+  <dd>this channel gave out the CW callsign.</dd>
+  <dt>D:</dt>
+  <dd>this channel was at one time the data channel </dd>
+  <dt>A: </dt>
+  <dd>this channel may at some point be used as an alternate data channel</dd>
+  <dt>V:</dt>
+  <dd>this channel has at one time carried voice connections. A different letter may be put in
+    this column to allow unused frequencies to be maintained in the file. Once the frequency
+    is actually used, Trunker will change this column to 'v'.</dd>
+</dl>
+
+<p>Each frequency identified (possibly in past sessions as saved in the xxxxSYS.txt file)
+is color coded: 
+
+<dl>
+  <dt>Dark Green or &quot;Quiet&quot; color you specify:</dt>
+  <dd>frequency not presently active or is emitting the CW callsign. </dd>
+  <dt>Light Green or &quot;Active&quot; color you specify:</dt>
+  <dd>frequency is active for voice. </dd>
+  <dt>DarkGrey:</dt>
+  <dd>frequency is currently the data channel. </dd>
+</dl>
+
+<p>Subsequent columns include: 
+
+<dl>
+  <dt><em>Prty:</em></dt>
+  <dd>the priority assigned the conversation, based on the composite of caller/destination
+    priority. (A low priority is 'better'.) </dd>
+  <dt><em>&quot;*&quot;:</em></dt>
+  <dd>this frequency is the current one which the Audio Scanner has been told to monitor, if
+    you are using that feature. </dd>
+  <dt><em>Destination Title:</em></dt>
+  <dd>usually, the name (and color) assigned to the group in use by editing the xxxxGRP.txt
+    file. For a private call, this will be the name and color assigned to the called
+    individual unit in the xxxxIDS.txt file. </dd>
+  <dt><em>ID:</em></dt>
+  <dd>ID information, depending on the type of bank being displayed. For a Type II or unknown
+    type bank, just the hex or decimal value of the talk group will appear. For a Type II
+    bank, flag nibble will be set to zero. For a Type I bank, the Bank#, Fleet#, and SubFleet
+    # are shown, for example: <font size="2" face="Courier New">&quot;3 02-12</font><font
+    face="Courier New">&quot;</font> for Bank 3, Fleet 2, SubFleet 12, followed by the group
+    ID in hex or decimal for direct entry into the 'G' command.</dd>
+  <dt><em>T:</em></dt>
+  <dd>either &quot;G&quot; for a group call, &quot;I&quot; for a Individual Call,
+    &quot;P&quot; for a patched call among multiple groups (the best priority group will be
+    shown followed by &quot;etc.&quot;,) &quot;A&quot; for &quot;All Talk Group&quot;,&nbsp;
+    &quot;E&quot; for Emergency Call, &quot;M&quot; for Multi-select, and &quot;D&quot; for
+    Digital or encrypted calls.</dd>
+  <dt><em>ID:</em></dt>
+  <dd>The hex or decimal id of the last radio keyed up. In group calls, this may sometimes be
+    inaccurate if another group member keyed-up before the previous member's disconnect tone
+    was sent out. Us this ID for entry into the 'I' command.</dd>
+  <dt><em>Caller Title:</em></dt>
+  <dd>the name (and color) assigned to the individual, if known, as specified in the
+    xxxxIDS.txt file. (see note in previous paragraph) </dd>
+</dl>
+
+<h4>Command/Response Area</h4>
+
+<p>This zone consists of two lines, the first for prompting, and the second for displaying
+the results of the last entered annotation request.</p>
+
+<h3><a name="fleets">Fleet Map Table</a></h3>
+
+<p><font color="#FF0000"><em>NOTE: These are NOT the Motorola Bank Size Codes!</em></font></p>
+
+<table border="2">
+  <tr>
+    <td><strong>Size</strong></td>
+    <td><strong>Use<br>
+    Letter<br>
+    (upper<br>
+    case for Type I, lower case for IIi or hybrid banks)</strong></td>
+    <td><strong>#Banks<br>
+    covered</strong></td>
+    <td><strong>#Fleets</strong></td>
+    <td><strong>#Subfleets<br>
+    per Fleet</strong></td>
+    <td><strong>#Radios<br>
+    per SubFleet</strong></td>
+    <td><strong>Notes</strong></td>
+  </tr>
+  <tr>
+    <td>S-0</td>
+    <td>2</td>
+    <td>1</td>
+    <td>n/a</td>
+    <td>n/a</td>
+    <td>n/a</td>
+    <td>Type-II Bank</td>
+  </tr>
+  <tr>
+    <td>S-1</td>
+    <td>A or a</td>
+    <td>1</td>
+    <td>128</td>
+    <td>4</td>
+    <td>16</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>S-2</td>
+    <td>B or b</td>
+    <td>1</td>
+    <td>16</td>
+    <td>8</td>
+    <td>64</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>S-3</td>
+    <td>C or c</td>
+    <td>1</td>
+    <td>8</td>
+    <td>8</td>
+    <td>128</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>S-4</td>
+    <td>D or d</td>
+    <td>1</td>
+    <td>1</td>
+    <td>16</td>
+    <td>512</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>S-5</td>
+    <td>E or e</td>
+    <td>1</td>
+    <td>64</td>
+    <td>4</td>
+    <td>32</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>S-6</td>
+    <td>F or f</td>
+    <td>1</td>
+    <td>32</td>
+    <td>8</td>
+    <td>32</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>S-7</td>
+    <td>G or g</td>
+    <td>1</td>
+    <td>32</td>
+    <td>4</td>
+    <td>64</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>S-8</td>
+    <td>H or h</td>
+    <td>1</td>
+    <td>16</td>
+    <td>4</td>
+    <td>128</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>S-9</td>
+    <td>I or i</td>
+    <td>1</td>
+    <td>8</td>
+    <td>4</td>
+    <td>256</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>S-10</td>
+    <td>J or j</td>
+    <td>1</td>
+    <td>4</td>
+    <td>8</td>
+    <td>256</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>S-11</td>
+    <td>K or k</td>
+    <td>1</td>
+    <td>2</td>
+    <td>16</td>
+    <td>256</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>S-12</td>
+    <td>L or l</td>
+    <td>2</td>
+    <td>1</td>
+    <td>16</td>
+    <td>1024</td>
+    <td>spans 2 banks(0-1,2-3,etc.)<br>
+    Trunker does not 'enforce'!<br>
+    Typical use is ??LL????</td>
+  </tr>
+  <tr>
+    <td>S-13</td>
+    <td>M or m</td>
+    <td>4</td>
+    <td>1</td>
+    <td>16</td>
+    <td>2048</td>
+    <td>spans banks 0-3 or 4-7 where used.<br>
+    Trunker does not 'enforce'.<br>
+    Typical use is MMMM???? or ????MMMM.</td>
+  </tr>
+  <tr>
+    <td>S-14</td>
+    <td>N or n</td>
+    <td>8</td>
+    <td>1</td>
+    <td>16</td>
+    <td>4096</td>
+    <td>spans all banks when used.<br>
+    Trunker does not 'enforce'.<br>
+    The <u><em><strong>only</strong></em></u> use for this code is NNNNNNNN.</td>
+  </tr>
+</table>
+
+<h3>Sample Data Files</h3>
+
+<h4>xxxxSYS.TXT</h4>
+
+<pre>
+System Label on first line
+MAP=222C2222		bank size map
+PLAN=8			800MHz 'Standard' US Band Plan
+DISPOSITION=...		per-system settings from 'option' sub-menu
+OPTIONS=NVDf		per-system settings from 'main' menu
+c v854.8875,9b,ffff,323	first 3 columns are flags, then freq. in MHz, then 'channel #'
+  v855.1875,a7,ffff,333	4th column is 'input frequency' hex for certain
+  v856.3125,d4,ffff,3f	UHF systems which emit input frequency codes. last is hit counter
+  v856.4125,d8,ffff,1dd2
+  v857.3125,fc,ffff,22f3
+  v857.4125,100,ffff,3303
+  v858.3125,124,ffff,12
+  v858.3625,126,ffff,f3
+ dv859.3125,14c,ffff,1333
+ dv859.4125,150,ffff,1223
+ dv860.3125,174,ffff,3ac3
+ dv0x320   ,320,ffff,11a	this one is unknown or suppressed by user
+</pre>
+
+<h4>xxxxGRP.TXT,xxxxIDS.txt,xxxxPTCH,txt</h4>
+
+<pre>;VER=3
+<small><small>;ID_hex,COLOR_dec,PRIO_dec,TITLE_str,LASTNOTED_hex,HITS_hex,USAGE_hex,ID_dec,ID_str,LASTNOTED_mm/dd/yyyy,LASTNOTED_hh:mm
+</small></small>00b0,1,99,&quot;Franklin/Springb. '2'&quot;,3a0066ee,547927bb,1c,176,#00B0,11/01/2000,13:54
+00d0,4,99,&quot;Springboro Primary&quot;,3a006447,231552c5,1e,208,#00D0,11/01/2000,13:43
+00f0,4,99,&quot;fire springboro&quot;,3a004ed2,19337641,0,240,#00F0,11/01/2000,12:11
+</pre>
+
+<table border="1" width="100%">
+  <tr>
+    <td width="133%" colspan="4"><p align="center"><a name="formatTable"><strong>Detailed
+    Specification of File Format for Groups, Radios, and Patches</strong></a></td>
+  </tr>
+  <tr>
+    <td width="18%"><strong>Field</strong></td>
+    <td width="22%"><strong>Format</strong></td>
+    <td width="56%"><strong>Contents</strong></td>
+    <td width="37%"><strong>Example</strong></td>
+  </tr>
+  <tr>
+    <td width="18%">ID_hex</td>
+    <td width="22%">Hex Number 0..ffff</td>
+    <td width="56%">Entity ID - Radio, Talkgroup, or Patch #</td>
+    <td width="37%">00b0</td>
+  </tr>
+  <tr>
+    <td width="18%">COLOR_dec</td>
+    <td width="22%">Decimal 0..63</td>
+    <td width="56%">Color to be assigned to this entity's descriptive text while it is on a
+    call</td>
+    <td width="37%">9</td>
+  </tr>
+  <tr>
+    <td width="18%">PRIO_dec</td>
+    <td width="22%">Decimal 0..99</td>
+    <td width="56%">Priority to be given this entity for selecting it for monitoring. If zero,
+    behavior depends on the setting of SEEKNEW, NEWRADIO, and/or NEWGROUP</td>
+    <td width="37%">6</td>
+  </tr>
+  <tr>
+    <td width="18%">TITLE_str</td>
+    <td width="22%">Quoted String</td>
+    <td width="56%">Label for that group/id/patch, usually typed in via g/i/p commands or
+    auto-annotated for radios.</td>
+    <td width="37%">&quot;WCC Primary&quot;</td>
+  </tr>
+  <tr>
+    <td width="18%">LASTNOTED_hex</td>
+    <td width="22%">32-bit Hex</td>
+    <td width="56%">Timestamp (UNIX time_t) for the last time this entry appeared as part of
+    an actual call</td>
+    <td width="37%">39fe26a5</td>
+  </tr>
+  <tr>
+    <td width="18%">HITS_hex</td>
+    <td width="22%">32-bit Hex</td>
+    <td width="56%">A counter proportional to the air time of the associated entity</td>
+    <td width="37%">547923f3</td>
+  </tr>
+  <tr>
+    <td width="18%">USAGE_hex</td>
+    <td width="22%">Hex Number 0..3f</td>
+    <td width="56%">6 individual bits indicating participation of this entity in a particular
+    type of conversation:<p>#01&nbsp; Emergency Call<br>
+    #02&nbsp; DES Encrypted Call<br>
+    #04&nbsp; Astro or other Digital Call<br>
+    #08&nbsp; Encrypted Astro or other Digital Call<br>
+    #10&nbsp; Phone Patch &lt;EDACS only&gt;<br>
+    #20&nbsp; Digital Phone Patch &lt;EDACS only&gt;</td>
+    <td width="37%">3 - participated in an emergency call and/or a DES encrypted call (could
+    have been both at once)</td>
+  </tr>
+  <tr>
+    <td width="18%">ID_dec</td>
+    <td width="22%">Decimal Number 0..65535</td>
+    <td width="56%">Decimal equivalent of the first field</td>
+    <td width="37%">368</td>
+  </tr>
+  <tr>
+    <td width="18%">ID_str</td>
+    <td width="22%">non-quoted string</td>
+    <td width="56%">String representation of the ID. For type 1, could contain fleet/subfleet
+    info</td>
+    <td width="37%">#0170 (hex type 2)<br>
+    368 (decimal type 2)<br>
+    3 02-12 (type 1 block/fleet/subfleet)</td>
+  </tr>
+  <tr>
+    <td width="18%">LASTNOTED_mm/dd/yyyy</td>
+    <td width="22%">Date String 10/14/2000...present</td>
+    <td width="56%">Date the entity last participated in a call</td>
+    <td width="37%">10/14/2000</td>
+  </tr>
+  <tr>
+    <td width="18%">LASTNOTED_hh:mm</td>
+    <td width="22%">Time String 00:00..23:59</td>
+    <td width="56%">Time the entity last participated in a call</td>
+    <td width="37%">07:34</td>
+  </tr>
+</table>
+
+<h4>xxxxPAGE.TXT</h4>
+<font size="1"><font face="Courier New">
+
+<pre style="letter-spacing: normal">
+Oct 14 01:42:20       [#0170]WCCC Primary #1D76 Af-&gt;#0170 WCCC Primary 
+Oct 14 01:46:45 Add2MSEL id #1067, group #0677(Fire Primary (!2))
+Oct 14 01:47:18 MSEL id #1067 closed.
+Oct 14 01:47:29       [#0170]WCCC Primary #16CF Af-&gt; #0170 WCCC Primary 
+Oct 14 01:49:11 [#0A50]Franklin Firegroun #16E9 Af-&gt; #0A50 Franklin Fireground </font>
+</pre>
+</font>
+
+<pre>
+<strong>xxxxMSG.TXT (this file is optional and requires knowledge of the radio system setup and reporting procedures)</strong></pre>
+
+<pre>;columns are: s for status or m for message,number,text
+s,1,place text here for status #1
+s,2,place text here for status #2
+...
+s,8,place text here for status #8
+m,1,responding
+m,2,on the scene
+m,3,returning available
+m,4,returning unavailable
+...
+m,16,place text here for message #16
+</pre>
+
+<h3>Notes On Data Content</h3>
+
+<ul>
+  <li>Priorities are <u>numbers ranging from</u> 0 to 99, with only those less &lt;= 50 <u>(or
+    the current Threshold)</u> triggering 'Tracking'.</li>
+  <li>Color values are as follows (a colorized prompter will help you choose a color when you
+    get to that field while using the 'p', 'i', or 'g' commands) (add 16 for the `flashing'
+    attribute, and/or add 32 for an alert 'tone'): <table border="1" cellspacing="1">
+      <tr>
+        <th><p align="center"><strong>Color</strong></th>
+        <th><strong>Decimal Value</strong></th>
+      </tr>
+      <tr>
+        <td checked="false"><pre>BLACK (not visible with default background color)</pre>
+        </td>
+        <td align="center" checked="false"><pre>0</pre>
+        </td>
+      </tr>
+      <tr>
+        <td checked="false"><pre>BLUE</pre>
+        </td>
+        <td align="center" checked="false"><pre>1</pre>
+        </td>
+      </tr>
+      <tr>
+        <td checked="false"><pre>GREEN</pre>
+        </td>
+        <td align="center" checked="false"><pre>2</pre>
+        </td>
+      </tr>
+      <tr>
+        <td checked="false"><pre>CYAN</pre>
+        </td>
+        <td align="center" checked="false"><pre>3</pre>
+        </td>
+      </tr>
+      <tr>
+        <td checked="false"><pre>RED</pre>
+        </td>
+        <td align="center" checked="false"><pre>4</pre>
+        </td>
+      </tr>
+      <tr>
+        <td checked="false"><pre>MAGENTA</pre>
+        </td>
+        <td align="center" checked="false"><pre>5</pre>
+        </td>
+      </tr>
+      <tr>
+        <td checked="false"><pre>BROWN</pre>
+        </td>
+        <td align="center" checked="false"><pre>6</pre>
+        </td>
+      </tr>
+      <tr>
+        <td checked="false"><pre>WHITE</pre>
+        </td>
+        <td align="center" checked="false"><pre>7</pre>
+        </td>
+      </tr>
+      <tr>
+        <td checked="false"><pre>DARKGRAY</pre>
+        </td>
+        <td align="center" checked="false"><pre>8</pre>
+        </td>
+      </tr>
+      <tr>
+        <td checked="false"><pre>LIGHTBLUE</pre>
+        </td>
+        <td align="center" checked="false"><pre>9</pre>
+        </td>
+      </tr>
+      <tr>
+        <td checked="false"><pre>LIGHTGREEN</pre>
+        </td>
+        <td align="center" checked="false"><pre>10</pre>
+        </td>
+      </tr>
+      <tr>
+        <td checked="false"><pre>LIGHTCYAN</pre>
+        </td>
+        <td align="center" checked="false"><pre>11</pre>
+        </td>
+      </tr>
+      <tr>
+        <td checked="false"><pre>LIGHTRED</pre>
+        </td>
+        <td align="center" checked="false"><pre>12</pre>
+        </td>
+      </tr>
+      <tr>
+        <td checked="false"><pre>LIGHTMAGENTA</pre>
+        </td>
+        <td align="center" checked="false"><pre>13</pre>
+        </td>
+      </tr>
+      <tr>
+        <td checked="false"><pre>YELLOW</pre>
+        </td>
+        <td align="center" checked="false"><pre>14</pre>
+        </td>
+      </tr>
+      <tr>
+        <td checked="false"><pre><font size="3">BRIGHTWHITE</font></pre>
+        </td>
+        <td align="center" checked="false"><pre><font size="3">15</font></pre>
+        </td>
+      </tr>
+      <tr>
+        <td checked="false">for blinking,</td>
+        <td align="center" checked="false">add 16</td>
+      </tr>
+      <tr>
+        <td checked="false">for beep,</td>
+        <td align="center" checked="false">add 32</td>
+      </tr>
+    </table>
+  </li>
+</ul>
+
+<h3><a name="CIVADDR">CI-V/CI-5 Radio Addresses Used by Trunker</a></h3>
+
+<table border="1" width="431">
+  <tr>
+    <td width="214"><strong><u>Radio</u></strong></td>
+    <td width="62"><strong><u>Hex Address</u></strong></td>
+    <td width="137"><strong><u>Decimal Address</u></strong></td>
+  </tr>
+  <tr>
+    <td width="214">Optoelectronics<br>
+    OS456/OS535/OPTOCOM</td>
+    <td width="62">80</td>
+    <td width="137">128</td>
+  </tr>
+  <tr>
+    <td width="214">Icom R10</td>
+    <td width="62">52</td>
+    <td width="137">82</td>
+  </tr>
+  <tr>
+    <td width="214">Icom R8500</td>
+    <td width="62">4A</td>
+    <td width="137">74</td>
+  </tr>
+  <tr>
+    <td width="214">Icom R7100</td>
+    <td width="62">34</td>
+    <td width="137">52</td>
+  </tr>
+  <tr>
+    <td width="214">Icom R7000</td>
+    <td width="62">8</td>
+    <td width="137">8</td>
+  </tr>
+</table>
+</body>
+</html>

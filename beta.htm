@@ -1,0 +1,294 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>Trunker Platform Beta Software</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<h1>Trunker Platform Beta Software</h1>
+
+<h2>What is in this Release?</h2>
+
+<p>This is a beta release of three different Radio Signal
+Processing programs: Trunker 3.x, MDT.EXE, and EDACS.EXE. All
+three of these programs have been build on top of a common set of
+C/C++ routines which represent a &quot;Platform&quot; or
+&quot;Environment&quot;. Once one correctly codes a set of
+environment variables (via AUTOEXEC.BAT), all three programs will
+adapt to the user's configuration of scanner, serial port(s) and
+slicer characteristics. In addition to the common environment
+variables, each of the components may also respond to
+component-specific environment variables.</p>
+
+<h2>Performance Demands</h2>
+
+<p>The following table is the author's current knowledge of the
+demands of each program. Please feel free to advise the author
+(see &quot;reporting beta issues&quot; below) of updates:</p>
+
+<table border="2" width="100%">
+    <tr>
+        <td><p align="center"><strong>Program</strong></p>
+        </td>
+        <td><p align="center"><strong>486</strong></p>
+        </td>
+        <td><p align="center"><strong>Pentium<br>
+        100MHz</strong></p>
+        </td>
+        <td><p align="center"><strong>Pentium<br>
+        133MHz</strong></p>
+        </td>
+        <td><p align="center"><strong>Pentium-Pro<br>
+        200MHz</strong></p>
+        </td>
+    </tr>
+    <tr>
+        <td><em>Trunker</em></td>
+        <td>?</td>
+        <td>Win95 &amp; DOS</td>
+        <td>Win95 &amp; DOS</td>
+        <td>Win95 &amp; DOS</td>
+    </tr>
+    <tr>
+        <td><em>MDT</em></td>
+        <td>?</td>
+        <td>?</td>
+        <td>?</td>
+        <td>Win95 &amp; DOS</td>
+    </tr>
+    <tr>
+        <td><em>EDACS</em></td>
+        <td>?</td>
+        <td>DOS only</td>
+        <td>DOS only</td>
+        <td>DOS, works but is<br>
+        degraded under Win95</td>
+    </tr>
+</table>
+
+<h2>Beta Objectives</h2>
+
+<p>Individual program objectives are listed in subsequent
+sections. As a whole, this beta release is aimed at validating
+the functioning of all three programs in the new
+&quot;platform&quot; environment.</p>
+
+<h2>Reporting Beta Issues</h2>
+
+<p>Please use the normal Trunker 3.x mailbox: <a
+href="mailto:trunkerv3x@mailexcite.com"><font size="2"
+face="Courier New">trunkerv3x@mailexcite.com</font></a>. Be sure
+to include <font size="2" face="Courier New"><u>Trunker Beta</u></font>
+in the Subject field so the mail will be properly routed.</p>
+
+<h2>Setting Up</h2>
+
+<h3>Typical Hardware Environment:</h3>
+
+<p><img src="trbody1.jpg" alt="wpe1.jpg (35865 bytes)"
+width="815" height="639"></p>
+
+<h3>Environment Variables Used by Trunker Platform Components</h3>
+
+<table border="1" width="100%" height="419"
+style="border: medium double">
+    <tr>
+        <td align="center" width="27%" height="19"><strong>Variable
+        Name</strong></td>
+        <td align="center" width="39%" height="19"><strong>Use</strong></td>
+        <td align="center" width="34%" height="19"><strong>Allowed
+        Values</strong></td>
+    </tr>
+    <tr>
+        <td width="27%" height="38">TRACKSCANPORT</td>
+        <td width="39%" height="38">The port to which the second,
+        tracking Voice Scanner is connected</td>
+        <td width="34%" height="38">COM1, COM2, COM3, COM4, NONE</td>
+    </tr>
+    <tr>
+        <td width="27%" height="95">TRACKSCANBAUD</td>
+        <td width="39%" height="95">The baud rate at which
+        commands are to be sent to the second, tracking scanner
+        for jumping between audio channels. The scanner must
+        accept the same setting.</td>
+        <td width="34%" height="95">300, 1200, 2400, 4800, 9600,
+        19200, 38400, 57600, 115200</td>
+    </tr>
+    <tr>
+        <td width="27%" height="76">TRACKSCAN</td>
+        <td width="39%" height="76">The type of scanner used for
+        audio tracking.</td>
+        <td width="34%" height="76">PCR1000, R10, R8500, R7000,
+        R7100, AR2700, AR3000, AR3000A, AR8000(cr mode), KENWOOD,
+        KENWOOD9600, BC895, NONE</td>
+    </tr>
+    <tr>
+        <td width="27%" height="38">TRACKSLICERPIN</td>
+        <td width="39%" height="38">pin for input from the Data
+        Slicer</td>
+        <td width="34%" height="38">CTS, DSR, DCD</td>
+    </tr>
+    <tr>
+        <td width="27%" height="38">TRACKSLICERPORT</td>
+        <td width="39%" height="38">The com port to which the
+        data slicer is connected (via the signal input lead
+        specified.)</td>
+        <td width="34%" height="38">COM1, COM2, COM3, COM4</td>
+    </tr>
+    <tr>
+        <td width="27%" height="17">TRACKSLICERMODE</td>
+        <td width="39%" height="17">Indicates whether the input
+        should be inverted or not. Usually INVERT for inverting
+        data slicer circuits. Trial and error may be necessary to
+        determine the proper setting. Those who use /invert for
+        Trunker 3.4 should start with this set to NORMAL and vice
+        versa.</td>
+        <td width="34%" height="17">NORMAL, INVERT</td>
+    </tr>
+</table>
+
+<p>The most common cause of failure to get these programs running
+is problems with the environmental variable memory allocation.
+Sometimes in Win95 DOS windows, a DOS BAT program will be unable
+to change environment variables. By placing the initial settings
+in the AUTOEXEC.BAT and updating them in the .BAT files, this
+problem seems to be eliminated. The following is a starting point
+for updating AUTOEXEC.BAT:</p>
+
+<p>Sample AUTOEXEC.BAT entries</p>
+
+<pre>set TRACKSLICERPIN=CTS
+set TRACKSLICERPORT=COM2
+set TRACKSLICERMODE=INVERT
+set TRACKSCAN=AR8000
+set TRACKSCANPORT=COM2
+set MDTWIDESCREEN=y
+set MDTWIDEFILE=n
+</pre>
+
+<p>Step-By-Step Instructions:</p>
+
+<ol>
+    <li>Add the above lines to your AUTOEXEC.BAT, modified to
+        your 'best guess' settings:</li>
+    <li>Restart DOS/Windows 95 to ensure space is allocated for
+        these variables</li>
+    <li>Edit each of the .BAT files (edsgo.bat, motgo.bat, and
+        mdtgo.bat) prior to executing them.</li>
+    <li>If a given component does not function, or you need
+        different features, adjust the .BAT file appropriately.</li>
+    <li>When you have determined the proper value for each
+        variable, edit AUTOEXEC.BAT with the correct value.</li>
+    <li>Restart DOS/Windows 95</li>
+    <li>You may then execute each .EXE directly without the .BAT
+        file or continue to use the xxxGO.BAT files.</li>
+</ol>
+
+<h2>Components</h2>
+
+<h3>Platform (initial beta)</h3>
+
+<p>This software is common to the following three packages.
+Please read and follow the instructions in the section
+&quot;Setting Up&quot; above before attempting to use any of
+these packages.</p>
+
+<h3>Trunker Component (beta)</h3>
+
+<p>Trunker understands the protocols and messages of Motorola
+Trunked Radio Systems. It displays information about a trunked
+system being monitored and can (when provided with two scanners
+as described in the documentation) provide trunk-tracking
+monitoring capabilities.</p>
+
+<p>The primary features to be tested in this Beta include:</p>
+
+<ol>
+    <li>Functioning of the platform code with various scanners,
+        ports, and slicer input bits.</li>
+    <li>Functioning of the Type-I Fleet Map Decoding and Type-II
+        Status Bit Decoding.</li>
+    <li>Functioning of specialized support for certain UHF radio
+        systems.</li>
+</ol>
+
+<p>Please refer to the recently rewritten <a href="trdoc.htm">Trunker
+3.x Documentation</a>.</p>
+
+<p><a href="trunker.zip">This ZIP file includes Trunker.exe and
+the motgo.bat file mentioned above.</a></p>
+
+<h3>MDT Component (interim)</h3>
+
+<p>MDT understands the MDC4800 protocol used by some Mobile
+Dispatch Terminals. This implementation has not evolved as much
+as Trunker, but still can provide some useful information. One
+must be cautious about what one does with the disk files created
+by MDT, since sending them or showing them to a third party could
+be construed as 'disclosing' what you 'heard' on your scanner.</p>
+
+<p>This version is the first release built on the Trunker
+Platform. Full documentation is not yet available. Two
+environment variables specific to MDT are:</p>
+
+<table border="2" width="100%">
+    <tr>
+        <td><p align="center"><strong>Variable</strong></p>
+        </td>
+        <td align="center"><p align="center"><strong>Values</strong></p>
+        </td>
+        <td><p align="center"><strong>Meaning</strong></p>
+        </td>
+    </tr>
+    <tr>
+        <td><p align="center"><em>MDTWIDESCREEN</em></p>
+        </td>
+        <td align="center"><p align="center">y<br>
+        n</p>
+        </td>
+        <td><p align="center">print nearly-readable output to the
+        screen<br>
+        print hex dump format to the screen</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p align="center"><em>MDTWIDEFILE</em></p>
+        </td>
+        <td align="center"><p align="center">y<br>
+        n</p>
+        </td>
+        <td><p align="center">save nearly-readable output to the
+        file<br>
+        save hex dump format to the file</p>
+        </td>
+    </tr>
+</table>
+
+<p><a href="mdt.zip">This ZIP file includes MDT.EXE and the
+mdtgo.bat file mentioned above.</a></p>
+
+<p>The author is open to suggestion regarding future features.
+One already in the works is the interpretation of the ANSI X3.64
+escape sequences in 'wide' mode.</p>
+
+<h3>EDACS (experimental)</h3>
+
+<p>This program is in its toddler stages. It was only posted
+(anonymously) last December to netnews. This version is useful
+for further identifying the characteristics of the EDACS trunked
+system. In its present form, source code modifications are
+required to get it to 'Trunk Track'. (The full source code for
+all three programs and the platform will be made publicly
+available at the end of the beta test.) It is expected that the
+next version of EDACS.EXE will have the look, feel, and functions
+of the Motorola Trunker.EXE, and will be able to trunk-track with
+any of the supported scanners.</p>
+
+<p><a href="edacs.zip">This ZIP file includes EDACS.EXE and the
+edsgo.bat file mentioned above.</a></p>
+</body>
+</html>

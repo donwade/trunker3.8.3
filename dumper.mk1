@@ -1,0 +1,94 @@
+!define BLANK ""
+c:\wtrunk\comport.obj : c:\wtrunk\comport.cpp .AUTODEPEND
+ @c:
+ cd c:\wtrunk
+ *wpp386 comport.cpp -i=C:\WATCOM\h -i=. -w4 -e10 -zp4 -zq -of+ -ol -ol+ -om&
+ -oc -oi -or -oe20 -fp3 -fpc -mf -3s -bt=dos -ew -wx -xss
+
+c:\wtrunk\dokey.obj : c:\wtrunk\dokey.cpp .AUTODEPEND
+ @c:
+ cd c:\wtrunk
+ *wpp386 dokey.cpp -i=C:\WATCOM\h -i=. -w4 -e10 -zp4 -zq -of+ -ol -ol+ -om -&
+oc -oi -or -oe20 -fp3 -fpc -mf -3s -bt=dos -ew -wx -xss
+
+c:\wtrunk\dumper2.obj : c:\wtrunk\dumper2.cpp .AUTODEPEND
+ @c:
+ cd c:\wtrunk
+ *wpp386 dumper2.cpp -i=C:\WATCOM\h -i=. -w4 -e10 -zp4 -zq -of+ -ol -ol+ -om&
+ -oc -oi -or -oe20 -fp3 -fpc -mf -3s -bt=dos -ew -wx -xss
+
+c:\wtrunk\freqdisp.obj : c:\wtrunk\freqdisp.cpp .AUTODEPEND
+ @c:
+ cd c:\wtrunk
+ *wpp386 freqdisp.cpp -i=C:\WATCOM\h -i=. -w4 -e10 -zp4 -zq -of+ -ol -ol+ -o&
+m -oc -oi -or -oe20 -fp3 -fpc -mf -3s -bt=dos -ew -wx -xss
+
+c:\wtrunk\hardware.obj : c:\wtrunk\hardware.cpp .AUTODEPEND
+ @c:
+ cd c:\wtrunk
+ *wpp386 hardware.cpp -i=C:\WATCOM\h -i=. -w4 -e10 -zp4 -zq -of+ -ol -ol+ -o&
+m -oc -oi -or -oe20 -fp3 -fpc -mf -3s -bt=dos -ew -wx -xss
+
+c:\wtrunk\infoact.obj : c:\wtrunk\infoact.cpp .AUTODEPEND
+ @c:
+ cd c:\wtrunk
+ *wpp386 infoact.cpp -i=C:\WATCOM\h -i=. -w4 -e10 -zp4 -zq -of+ -ol -ol+ -om&
+ -oc -oi -or -oe20 -fp3 -fpc -mf -3s -bt=dos -ew -wx -xss
+
+c:\wtrunk\inthdlr.obj : c:\wtrunk\inthdlr.cpp .AUTODEPEND
+ @c:
+ cd c:\wtrunk
+ *wpp386 inthdlr.cpp -i=C:\WATCOM\h -i=. -w4 -e10 -zp4 -zq -of+ -ol -ol+ -om&
+ -oc -oi -or -oe20 -fp3 -fpc -mf -3s -bt=dos -ew -wx -xss
+
+c:\wtrunk\platform.obj : c:\wtrunk\platform.cpp .AUTODEPEND
+ @c:
+ cd c:\wtrunk
+ *wpp386 platform.cpp -i=C:\WATCOM\h -i=. -w4 -e10 -zp4 -zq -of+ -ol -ol+ -o&
+m -oc -oi -or -oe20 -fp3 -fpc -mf -3s -bt=dos -ew -wx -xss
+
+c:\wtrunk\scanner.obj : c:\wtrunk\scanner.cpp .AUTODEPEND
+ @c:
+ cd c:\wtrunk
+ *wpp386 scanner.cpp -i=C:\WATCOM\h -i=. -w4 -e10 -zp4 -zq -of+ -ol -ol+ -om&
+ -oc -oi -or -oe20 -fp3 -fpc -mf -3s -bt=dos -ew -wx -xss
+
+c:\wtrunk\scrlog.obj : c:\wtrunk\scrlog.cpp .AUTODEPEND
+ @c:
+ cd c:\wtrunk
+ *wpp386 scrlog.cpp -i=C:\WATCOM\h -i=. -w4 -e10 -zp4 -zq -of+ -ol -ol+ -om &
+-oc -oi -or -oe20 -fp3 -fpc -mf -3s -bt=dos -ew -wx -xss
+
+c:\wtrunk\stats.obj : c:\wtrunk\stats.cpp .AUTODEPEND
+ @c:
+ cd c:\wtrunk
+ *wpp386 stats.cpp -i=C:\WATCOM\h -i=. -w4 -e10 -zp4 -zq -of+ -ol -ol+ -om -&
+oc -oi -or -oe20 -fp3 -fpc -mf -3s -bt=dos -ew -wx -xss
+
+c:\wtrunk\stubs.obj : c:\wtrunk\stubs.cpp .AUTODEPEND
+ @c:
+ cd c:\wtrunk
+ *wpp386 stubs.cpp -i=C:\WATCOM\h -i=. -w4 -e10 -zp4 -zq -of+ -ol -ol+ -om -&
+oc -oi -or -oe20 -fp3 -fpc -mf -3s -bt=dos -ew -wx -xss
+
+c:\wtrunk\trunksys.obj : c:\wtrunk\trunksys.cpp .AUTODEPEND
+ @c:
+ cd c:\wtrunk
+ *wpp386 trunksys.cpp -i=C:\WATCOM\h -i=. -w4 -e10 -zp4 -zq -of+ -ol -ol+ -o&
+m -oc -oi -or -oe20 -fp3 -fpc -mf -3s -bt=dos -ew -wx -xss
+
+c:\wtrunk\dumper.exe : c:\wtrunk\comport.obj c:\wtrunk\dokey.obj c:\wtrunk\d&
+umper2.obj c:\wtrunk\freqdisp.obj c:\wtrunk\hardware.obj c:\wtrunk\infoact.o&
+bj c:\wtrunk\inthdlr.obj c:\wtrunk\platform.obj c:\wtrunk\scanner.obj c:\wtr&
+unk\scrlog.obj c:\wtrunk\stats.obj c:\wtrunk\stubs.obj c:\wtrunk\trunksys.ob&
+j .AUTODEPEND
+ @c:
+ cd c:\wtrunk
+ @%write dumper.lk1 NAME dumper
+ @%append dumper.lk1 FIL comport.obj,dokey.obj,dumper2.obj,freqdisp.obj,hard&
+ware.obj,infoact.obj,inthdlr.obj,platform.obj,scanner.obj,scrlog.obj,stats.o&
+bj,stubs.obj,trunksys.obj
+ @%append dumper.lk1 
+ *wlink SYS pmodew op m op st=30000 op maxe=25 op q op symf op one @dumper.l&
+k1
+
